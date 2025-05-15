@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import "../index.css";
 import "./LanguageSwitcher.css";
 
 const LanguageSwitcher = () => {
@@ -9,13 +10,13 @@ const LanguageSwitcher = () => {
     <div className="language-switcher">
       <button
         onClick={() => i18n.changeLanguage("en")}
-        className={`language-btn ${currentLang === "en" ? "active" : ""}`}
+        className={`button ${currentLang === "en" ? "active" : ""}`}
       >
         EN
       </button>
       <button
         onClick={() => i18n.changeLanguage("pl")}
-        className={`language-btn ${currentLang === "pl" ? "active" : ""}`}
+        className={`button ${currentLang === "pl" ? "active" : ""}`}
       >
         PL
       </button>

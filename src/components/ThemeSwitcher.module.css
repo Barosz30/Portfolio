@@ -1,0 +1,27 @@
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.button:hover,
+.button:focus {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.active {
+  box-shadow: 0 0 0 2px var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
