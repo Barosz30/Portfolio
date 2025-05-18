@@ -2,5 +2,8 @@
   "nav": {
     "MyPortfolio": "My Portfolio"
   },
-  "welcome": "Welcome to my portfolio"
+  "welcome": "Welcome to my portfolio",
+  "shop_description": "App we made as a team of 3, where i was appointed as leader. We made it with Next.js, used MongoDB for database, and Clerk for authorization.",
+  "call_to_action": "Enjoy checking it out ;)",
+  "check_it_out": "Check it out →"
 }

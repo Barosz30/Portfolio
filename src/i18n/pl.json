@@ -2,5 +2,8 @@
   "nav": {
     "MyPortfolio": "Moje Portfolio"
   },
-  "welcome": "Witaj na moim portfolio"
+  "welcome": "Witaj na moim portfolio",
+  "shop_description": "Aplikacja, którą stworzyliśmy w trzyosobowym zespole, gdzie pełniłem rolę lidera. Zbudowaliśmy ją w Next.js, wykorzystaliśmy MongoDB jako bazę danych oraz Clerk do autoryzacji.",
+  "call_to_action": "Miłego oglądania! ;)",
+  "check_it_out": "Zobacz projekt →"
 }
