@@ -1,11 +1,14 @@
 import { useTranslation } from "react-i18next";
 import "./SingleProject.css";
 
+type LinkType = { type: "url"; value: string } | { type: "qr"; value: string };
+
 type PhotosProps = {
   photos: string[];
   description: string;
   callToAction: string;
-  linkToProject: string;
+  linkToProject: LinkType;
+  orientation?: "horizontal" | "vertical";
 };
 
 const SingleProject = ({
@@ -13,6 +16,7 @@ const SingleProject = ({
   description,
   callToAction,
   linkToProject,
+  orientation = "horizontal",
 }: PhotosProps) => {
   const firstRow = photos.slice(0, 2);
   const secondRow = photos.slice(2, 4);
@@ -21,37 +25,57 @@ const SingleProject = ({
   return (
     <div className="project-container">
       <div className="photos-container">
-        <div className="photos-row">
-          {firstRow.map((src, index) => (
+        <div
+          className={
+            orientation === "vertical" ? "photos-row-vertical" : "photos-row"
+          }
+        >
+          {firstRow.map((photo, index) => (
             <img
               key={index}
-              src={src}
+              src={photo}
               alt={`Project photo ${index + 1}`}
-              className="photo"
+              className={`photo ${
+                orientation === "vertical"
+                  ? "photo-vertical"
+                  : "photo-horizontal"
+              }`}
             />
           ))}
         </div>
-        <div className="photos-row">
-          {secondRow.map((src, index) => (
+        <div
+          className={
+            orientation === "vertical" ? "photos-row-vertical" : "photos-row"
+          }
+        >
+          {secondRow.map((photo, index) => (
             <img
-              key={index + 2}
-              src={src}
-              alt={`Project photo ${index + 3}`}
-              className="photo"
+              key={index}
+              src={photo}
+              alt={`Project photo ${index + 1}`}
+              className={`photo ${
+                orientation === "vertical"
+                  ? "photo-vertical"
+                  : "photo-horizontal"
+              }`}
             />
           ))}
         </div>
       </div>
       <div className="text-container">
         <div className="description">{description}</div>
-        <a
-          href={linkToProject}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link"
-        >
-          {t("check_it_out")}
-        </a>
+        {linkToProject.type === "url" ? (
+          <a
+            href={linkToProject.value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link"
+          >
+            {t("check_it_out")}
+          </a>
+        ) : (
+          <img src={linkToProject.value} alt="QR Code" className="qr-code" />
+        )}
         <div className="description">{callToAction}</div>
       </div>
     </div>

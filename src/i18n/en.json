@@ -5,5 +5,6 @@
   "welcome": "Welcome to my portfolio",
   "shop_description": "App we made as a team of 3, where i was appointed as leader. We made it with Next.js, used MongoDB for database, and Clerk for authorization.",
   "call_to_action": "Enjoy checking it out ;)",
-  "check_it_out": "Check it out →"
+  "check_it_out": "Check it out →",
+  "games_database_description": "A mobile application built with React Native / Expo that allows users to browse the latest games from the IGDB database (integrated with Twitch). Users can filter games by genre and platform, search by name, and save their favorite titles in a separate tab. Each game features detailed information including a description, screenshots, videos, and suggestions for similar games — similar to the PlayStation Store experience."
 }
