@@ -38,6 +38,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 45%;
   max-height: 200px;
+  cursor: pointer;
 }
 
 .photo-horizontal {
@@ -114,4 +115,11 @@
     align-items: center;
     text-align: center;
   }
+}
+
+.custom-lightbox-wrapper {
+  --yarl__container_padding: 40px;
+  --yarl__icon_button_background: rgba(0, 0, 0, 0.6);
+  --yarl__icon_button_color: white;
+  --yarl__icon_button_size: 40px;
 }
