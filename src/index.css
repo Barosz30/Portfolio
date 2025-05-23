@@ -19,6 +19,8 @@
   --button-text: #ffffff;
   --border-color: #dddddd;
   --secondary-bg: #f9f9f9;
+  --chatbot-text-bg: #e6f0ff;
+  --chatbot-text-color: #000000;
 }
 
 [data-theme='dark'] {
@@ -31,6 +33,8 @@
   --button-text: #000000;
   --border-color: #444444;
   --secondary-bg: #1a1a1a;
+  --chatbot-user-bg: #1e1e1e;
+  --chatbot-user-color: #ffffff;
 }
 
 [data-theme='sakura'] {
@@ -43,6 +47,8 @@
   --button-text: #fff0f5;
   --border-color: #f7aac3;
   --secondary-bg: #ffe6ef;
+  --chatbot-text-bg: #ffdbe8;
+  --chatbot-text-color: #4b2c2c;
 }
 
 body {

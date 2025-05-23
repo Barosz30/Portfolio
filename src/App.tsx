@@ -15,7 +15,12 @@ import gamesDatabase1 from "./assets/images/games_database1.webp";
 import gamesDatabase2 from "./assets/images/games_database2.webp";
 import gamesDatabase3 from "./assets/images/games_database3.webp";
 import gamesDatabase4 from "./assets/images/games_database4.webp";
+import bike1 from "./assets/images/Bike1.webp";
+import bike2 from "./assets/images/Bike2.webp";
+import bike3 from "./assets/images/Bike3.webp";
+import bike4 from "./assets/images/Bike4.webp";
 import gamesQR from "./assets/images/games_database_qr.webp";
+import ChatbotWidget from "./components/ChatbotWidget";
 
 function App() {
   const { t } = useTranslation();
@@ -34,6 +39,10 @@ function App() {
   ];
   const gamesDatabaseDescription = t("games_database_description");
   const gamesDatabaseImage = gamesQR;
+
+  const bikeImages = [bike1, bike2, bike3, bike4];
+  const bikeDescription = t("bike_description");
+  const bikeLink = "https://barosz30.github.io/bikestore_layout/";
 
   let background;
 
@@ -74,7 +83,14 @@ function App() {
           linkToProject={{ type: "qr", value: gamesDatabaseImage }}
           orientation="vertical"
         />
+        <SingleProject
+          photos={bikeImages}
+          description={bikeDescription}
+          callToAction={shopCallToAction}
+          linkToProject={{ type: "url", value: bikeLink }}
+        />
       </div>
+      <ChatbotWidget />
     </>
   );
 }

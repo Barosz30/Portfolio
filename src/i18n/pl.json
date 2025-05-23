@@ -4,7 +4,10 @@
   },
   "welcome": "Witaj na moim portfolio",
   "shop_description": "Aplikacja, którą stworzyliśmy w trzyosobowym zespole, gdzie pełniłem rolę lidera. Zbudowaliśmy ją w Next.js, wykorzystaliśmy MongoDB jako bazę danych oraz Clerk do autoryzacji.",
+  "bike_description": "Landing Page sklepu z rowerami, stworzona na podstawie projektu figmy, przy wykorzystaniu tylko html i css",
   "call_to_action": "Miłego oglądania! ;)",
   "check_it_out": "Zobacz projekt →",
-  "games_database_description": "Aplikacja mobilna stworzona w React Native / Expo, umożliwiająca przeglądanie najnowszych gier z bazy IGDB (zintegrowanej z Twitch). Użytkownik może filtrować gry według gatunków i platform, wyszukiwać po nazwie, a także dodawać ulubione tytuły do osobnej zakładki. Po wejściu w szczegóły gry prezentowane są: opis, screeny, materiały wideo oraz propozycje podobnych gier – w stylu sklepu PlayStation."
+  "games_database_description": "Aplikacja mobilna stworzona w React Native / Expo, umożliwiająca przeglądanie najnowszych gier z bazy IGDB (zintegrowanej z Twitch). Użytkownik może filtrować gry według gatunków i platform, wyszukiwać po nazwie, a także dodawać ulubione tytuły do osobnej zakładki. Po wejściu w szczegóły gry prezentowane są: opis, screeny, materiały wideo oraz propozycje podobnych gier – w stylu sklepu PlayStation.",
+  "type_message": "Zadaj pytanie...",
+  "send": "Wyślij"
 }
