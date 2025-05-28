@@ -8,7 +8,7 @@ type Message = {
 };
 
 const ChatbotWidget = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
