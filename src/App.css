@@ -57,6 +57,12 @@
   transform: translateY(-100%);
 }
 
+.dark-background {
+  background-color: aliceblue;
+  border-radius: 1rem;
+  height: 120px;
+}
+
 
 @media (max-width: 530px) {
   .navbar-container {

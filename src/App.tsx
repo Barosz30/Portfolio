@@ -67,11 +67,22 @@ function App() {
     <>
       <nav className={`navbar ${!isAtTop ? "hide-controls" : ""}`}>
         <div className={"navbar-container"}>
-          <img
-            src={funfolio}
-            alt="Mirosław Wandyk logo"
-            className="navbar-logo-img"
-          />
+          {theme === "dark" ? (
+            <div className={"dark-background"}>
+              <img
+                src={funfolio}
+                alt="Mirosław Wandyk logo"
+                className="navbar-logo-img"
+              />
+            </div>
+          ) : (
+            <img
+              src={funfolio}
+              alt="Mirosław Wandyk logo"
+              className="navbar-logo-img"
+            />
+          )}
+
           <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
