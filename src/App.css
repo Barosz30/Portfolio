@@ -10,11 +10,13 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
 
 .navbar-container {
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   min-height: 64px;
   display: flex;
   align-items: center;
@@ -26,6 +28,11 @@
   font-size: 1.25rem;
   color: var(--navbar-text);
   min-width: 150px;
+}
+
+.navbar-logo-img {
+  height: 120px;
+  object-fit: contain;
 }
 
 .main {
@@ -45,6 +52,11 @@
   border: 1px solid var(--border-color);
   background-color: var(--bg-color);
 }
+
+.hide-controls {
+  transform: translateY(-100%);
+}
+
 
 @media (max-width: 530px) {
   .navbar-container {

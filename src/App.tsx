@@ -21,10 +21,13 @@ import bike3 from "./assets/images/Bike3.webp";
 import bike4 from "./assets/images/Bike4.webp";
 import gamesQR from "./assets/images/games_database_qr.webp";
 import ChatbotWidget from "./components/ChatbotWidget";
+import { useIsAtTop } from "./hooks/useIsAtTop";
+import funfolio from "./assets/images/FunFolio.png";
 
 function App() {
   const { t } = useTranslation();
   const { theme } = useTheme();
+  const isAtTop = useIsAtTop();
 
   const shopImages = [shop1, shop2, shop3, shop4];
   const shopDescription = t("shop_description");
@@ -62,9 +65,13 @@ function App() {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-container">
-          <div className="navbar-logo">{t("nav.MyPortfolio")}</div>
+      <nav className={`navbar ${!isAtTop ? "hide-controls" : ""}`}>
+        <div className={"navbar-container"}>
+          <img
+            src={funfolio}
+            alt="Mirosław Wandyk logo"
+            className="navbar-logo-img"
+          />
           <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
