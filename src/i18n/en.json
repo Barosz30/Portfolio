@@ -9,5 +9,7 @@
   "check_it_out": "Check it out →",
   "games_database_description": "A mobile application built with React Native / Expo that allows users to browse the latest games from the IGDB database (integrated with Twitch). Users can filter games by genre and platform, search by name, and save their favorite titles in a separate tab. Each game features detailed information including a description, screenshots, videos, and suggestions for similar games — similar to the PlayStation Store experience.",
   "type_message": "Ask me a question...",
-  "send": "Send"
+  "send": "Send",
+  "theme": "Theme",
+  "language": "Language"
 }

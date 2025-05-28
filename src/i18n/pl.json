@@ -9,5 +9,7 @@
   "check_it_out": "Zobacz projekt →",
   "games_database_description": "Aplikacja mobilna stworzona w React Native / Expo, umożliwiająca przeglądanie najnowszych gier z bazy IGDB (zintegrowanej z Twitch). Użytkownik może filtrować gry według gatunków i platform, wyszukiwać po nazwie, a także dodawać ulubione tytuły do osobnej zakładki. Po wejściu w szczegóły gry prezentowane są: opis, screeny, materiały wideo oraz propozycje podobnych gier – w stylu sklepu PlayStation.",
   "type_message": "Zadaj pytanie...",
-  "send": "Wyślij"
+  "send": "Wyślij",
+  "theme": "Motyw",
+  "language": "Język"
 }

@@ -1,25 +1,33 @@
 import { useTranslation } from "react-i18next";
-import "../index.css";
-import "./LanguageSwitcher.css";
+import styles from "./LanguageSwitcher.module.css";
+import Flag from "react-world-flags";
+
+const languages = [
+  { code: "en", label: "EN", flag: "GB", title: "English" },
+  { code: "pl", label: "PL", flag: "PL", title: "Polski" },
+];
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
   return (
-    <div className="language-switcher">
-      <button
-        onClick={() => i18n.changeLanguage("en")}
-        className={`button ${currentLang === "en" ? "active" : ""}`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => i18n.changeLanguage("pl")}
-        className={`button ${currentLang === "pl" ? "active" : ""}`}
-      >
-        PL
-      </button>
+    <div className={styles.wrapper}>
+      <span className={styles.label}>{t("language")}</span>
+      <div className={styles.group}>
+        {languages.map((lang) => (
+          <button
+            key={lang.code}
+            title={lang.title}
+            className={`${styles.option} ${
+              currentLang === lang.code ? styles.active : ""
+            }`}
+            onClick={() => i18n.changeLanguage(lang.code)}
+          >
+            <Flag code={lang.flag} style={{ width: 30, height: 20 }} />
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

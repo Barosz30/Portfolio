@@ -73,7 +73,7 @@ const ChatbotWidget = () => {
   return (
     <>
       <div className="chatbot-fab" onClick={() => setOpen(!open)}>
-        💬
+        Chatbot 💬
       </div>
       {open && (
         <div className="chatbot-window">
