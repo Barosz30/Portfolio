@@ -11,5 +11,6 @@
   "type_message": "Zadaj pytanie...",
   "send": "Wyślij",
   "theme": "Motyw",
-  "language": "Język"
+  "language": "Język",
+  "chatbot_greeting": "Cześć! 👋 Jestem Twoim wirtualnym asystentem na stronie Mirosława. Zadaj mi pytanie lub napisz, w czym mogę Ci pomóc! (pierwsza odpowiedź może chwilę zająć, dziękuję za wyrozumiałość!)"
 }

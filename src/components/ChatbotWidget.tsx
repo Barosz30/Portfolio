@@ -8,12 +8,12 @@ type Message = {
 };
 
 const ChatbotWidget = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
 
   const [loadingDots, setLoadingDots] = useState("");
 
@@ -78,6 +78,7 @@ const ChatbotWidget = () => {
       {open && (
         <div className="chatbot-window">
           <div className="chatbot-messages">
+            <div className="chat-message bot">{t("chatbot_greeting")}</div>
             {messages.map((m, i) => (
               <div key={i} className={`chat-message ${m.sender}`}>
                 {m.text}

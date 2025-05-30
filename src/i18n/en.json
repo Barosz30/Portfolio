@@ -11,5 +11,6 @@
   "type_message": "Ask me a question...",
   "send": "Send",
   "theme": "Theme",
-  "language": "Language"
+  "language": "Language",
+  "chatbot_greeting": "Hi! 👋 I’m your virtual assistant on Mirosław's website. Ask me a question or let me know how I can help you! (The first response might take a moment — thanks for your patience!)"
 }
