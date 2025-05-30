@@ -48,3 +48,19 @@
   font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
   font-size: 1.5rem;
 }
+
+@media (max-width: 480px) {
+  .option {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .group {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .label {
+    font-size: 0.8rem;
+  }
+}

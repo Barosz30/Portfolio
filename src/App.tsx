@@ -67,6 +67,8 @@ function App() {
     <>
       <nav className={`navbar ${!isAtTop ? "hide-controls" : ""}`}>
         <div className={"navbar-container"}>
+          <ThemeSwitcher />
+
           {theme === "dark" ? (
             <div className={"dark-background"}>
               <img
@@ -83,7 +85,6 @@ function App() {
             />
           )}
 
-          <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
       </nav>
