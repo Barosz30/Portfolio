@@ -22,15 +22,27 @@ const SingleProject = ({
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
   const slideRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const resetAutoSlide = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % photos.length);
     }, 5000);
-    return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    resetAutoSlide();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [photos.length]);
 
   const handleManualScroll = (direction: "next" | "prev") => {
@@ -39,6 +51,29 @@ const SingleProject = ({
         ? (prev + 1) % photos.length
         : (prev - 1 + photos.length) % photos.length
     );
+    resetAutoSlide();
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null &&
+      Math.abs(touchStartX.current - touchEndX.current) > 50
+    ) {
+      const direction =
+        touchStartX.current > touchEndX.current ? "next" : "prev";
+      handleManualScroll(direction);
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
   return (
@@ -50,6 +85,9 @@ const SingleProject = ({
             setIndex(currentSlide);
             setOpen(true);
           }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className="carousel-track"
