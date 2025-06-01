@@ -100,7 +100,6 @@ function App() {
           description={gamesDatabaseDescription}
           callToAction={shopCallToAction}
           linkToProject={{ type: "qr", value: gamesDatabaseImage }}
-          orientation="vertical"
         />
         <SingleProject
           photos={bikeImages}
