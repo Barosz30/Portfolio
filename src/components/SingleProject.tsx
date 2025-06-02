@@ -8,6 +8,7 @@ type LinkType = { type: "url"; value: string } | { type: "qr"; value: string };
 
 type PhotosProps = {
   photos: string[];
+  role?: string;
   description: string;
   callToAction: string;
   linkToProject: LinkType;
@@ -15,6 +16,7 @@ type PhotosProps = {
 
 const SingleProject = ({
   photos,
+  role,
   description,
   callToAction,
   linkToProject,
@@ -143,6 +145,11 @@ const SingleProject = ({
       </div>
 
       <div className="text-container">
+        {role && (
+          <h1 className="role">
+            {t("role")}: {role}
+          </h1>
+        )}
         <div className="description">{description}</div>
         {linkToProject.type === "url" ? (
           <a

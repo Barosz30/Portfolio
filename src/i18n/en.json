@@ -3,8 +3,8 @@
     "MyPortfolio": "My Portfolio"
   },
   "welcome": "Welcome to my portfolio",
-  "shop_description": "App we made as a team of 3, where i was appointed as leader. We made it with Next.js, used MongoDB for database, and Clerk for authorization.",
-  "bike_description": "Landing Page about bike shop, based on figma project, made with just html and css",
+  "shop_description": "An application developed by a three-person team, where I served as the team lead and technical coordinator. We built the project using Next.js, with MongoDB as the database (no-sql) and Clerk for user authentication and management. I was responsible for designing the app’s architecture, delegating tasks, and implementing core functionalities.",
+  "bike_description": "A bicycle store landing page built based on a Figma design, using only HTML and CSS. I recreated the layout with attention to visual accuracy and design consistency, following the BEM naming convention to ensure maintainable and scalable code. The page was developed using a mobile-first approach and scales seamlessly across mobile, tablet, and desktop devices.",
   "call_to_action": "Enjoy checking it out ;)",
   "check_it_out": "Check it out →",
   "games_database_description": "A mobile application built with React Native / Expo that allows users to browse the latest games from the IGDB database (integrated with Twitch). Users can filter games by genre and platform, search by name, and save their favorite titles in a separate tab. Each game features detailed information including a description, screenshots, videos, and suggestions for similar games — similar to the PlayStation Store experience.",
@@ -12,5 +12,9 @@
   "send": "Send",
   "theme": "Theme",
   "language": "Language",
-  "chatbot_greeting": "Hi! 👋 I’m your virtual assistant on Mirosław's website. Ask me a question or let me know how I can help you! (The first response might take a moment — thanks for your patience!)"
+  "chatbot_greeting": "Hi! 👋 I’m your virtual assistant on Mirosław's website. Ask me a question or let me know how I can help you! (The first response might take a moment — thanks for your patience!)",
+  "role": "Role",
+  "teamlead": "Team Leader",
+  "reactNativeProgrammer": "React Native Developer",
+  "frontendDeveloper": "Frontend Developer"
 }

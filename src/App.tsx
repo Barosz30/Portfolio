@@ -33,6 +33,7 @@ function App() {
   const shopDescription = t("shop_description");
   const shopCallToAction = t("call_to_action");
   const shopLink = "https://catalog-deploy-barosz30s-projects.vercel.app/";
+  const shopRole = t("teamlead");
 
   const gamesDatabaseImages = [
     gamesDatabase1,
@@ -42,10 +43,12 @@ function App() {
   ];
   const gamesDatabaseDescription = t("games_database_description");
   const gamesDatabaseImage = gamesQR;
+  const gamesDatabaseRole = t("reactNativeProgrammer");
 
   const bikeImages = [bike1, bike2, bike3, bike4];
   const bikeDescription = t("bike_description");
   const bikeLink = "https://barosz30.github.io/bikestore_layout/";
+  const bikeRole = t("frontendDeveloper");
 
   let background;
 
@@ -94,18 +97,21 @@ function App() {
           description={shopDescription}
           callToAction={shopCallToAction}
           linkToProject={{ type: "url", value: shopLink }}
+          role={shopRole}
         />
         <SingleProject
           photos={gamesDatabaseImages}
           description={gamesDatabaseDescription}
           callToAction={shopCallToAction}
           linkToProject={{ type: "qr", value: gamesDatabaseImage }}
+          role={gamesDatabaseRole}
         />
         <SingleProject
           photos={bikeImages}
           description={bikeDescription}
           callToAction={shopCallToAction}
           linkToProject={{ type: "url", value: bikeLink }}
+          role={bikeRole}
         />
       </div>
       <ChatbotWidget />
