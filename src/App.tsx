@@ -34,6 +34,8 @@ function App() {
   const shopCallToAction = t("call_to_action");
   const shopLink = "https://catalog-deploy-barosz30s-projects.vercel.app/";
   const shopRole = t("teamlead");
+  const shopTechStack =
+    "Next.js, Typescript, Tailwind, Clerk, Git, React, SASS (SCSS), Sequelize, PostgreSQL, Node.js, Express, RWD";
 
   const gamesDatabaseImages = [
     gamesDatabase1,
@@ -44,11 +46,14 @@ function App() {
   const gamesDatabaseDescription = t("games_database_description");
   const gamesDatabaseImage = gamesQR;
   const gamesDatabaseRole = t("reactNativeProgrammer");
+  const gamesDatabaseTechStack =
+    "React Native, Typescript, REST API, HTML, SCSS, Nativewind/Tailwind";
 
   const bikeImages = [bike1, bike2, bike3, bike4];
   const bikeDescription = t("bike_description");
   const bikeLink = "https://barosz30.github.io/bikestore_layout/";
   const bikeRole = t("frontendDeveloper");
+  const bikeTechStack = "HTML, SCSS, CSS, BEM, RWD, JavaScript";
 
   let background;
 
@@ -98,6 +103,7 @@ function App() {
           callToAction={shopCallToAction}
           linkToProject={{ type: "url", value: shopLink }}
           role={shopRole}
+          techstack={shopTechStack}
         />
         <SingleProject
           photos={gamesDatabaseImages}
@@ -105,6 +111,7 @@ function App() {
           callToAction={shopCallToAction}
           linkToProject={{ type: "qr", value: gamesDatabaseImage }}
           role={gamesDatabaseRole}
+          techstack={gamesDatabaseTechStack}
         />
         <SingleProject
           photos={bikeImages}
@@ -112,6 +119,7 @@ function App() {
           callToAction={shopCallToAction}
           linkToProject={{ type: "url", value: bikeLink }}
           role={bikeRole}
+          techstack={bikeTechStack}
         />
       </div>
       <ChatbotWidget />

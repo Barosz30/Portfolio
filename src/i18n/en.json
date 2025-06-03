@@ -16,5 +16,6 @@
   "role": "Role",
   "teamlead": "Team Leader",
   "reactNativeProgrammer": "React Native Developer",
-  "frontendDeveloper": "Frontend Developer"
+  "frontendDeveloper": "Frontend Developer",
+  "techstack": "Technologies used"
 }

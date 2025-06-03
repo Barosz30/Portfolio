@@ -4,6 +4,7 @@
   },
   "welcome": "Witaj na moim portfolio",
   "shop_description": "Aplikacja stworzona w trzyosobowym zespole, w którym pełniłem rolę lidera technicznego i koordynatora prac. Projekt zrealizowaliśmy w technologii Next.js, wykorzystując MongoDB jako bazę danych (no-sql) oraz Clerk do obsługi rejestracji, logowania i zarządzania użytkownikami. Odpowiadałem m.in. za architekturę aplikacji, podział zadań oraz integrację głównych funkcjonalności.",
+  "bike_description": "Landing page sklepu rowerowego stworzony na podstawie projektu z Figma, przy użyciu wyłącznie HTML i CSS. Odtworzyłem układ z dbałością o wizualną dokładność i spójność z projektem, stosując konwencję nazewnictwa BEM w celu zapewnienia łatwości utrzymania i skalowalności kodu. Strona została zaprojektowana w podejściu mobile-first i płynnie dostosowuje się do urządzeń mobilnych, tabletów oraz komputerów stacjonarnych.",
   "call_to_action": "Miłego oglądania! ;)",
   "check_it_out": "Zobacz projekt →",
   "games_database_description": "Aplikacja mobilna stworzona w React Native / Expo, umożliwiająca przeglądanie najnowszych gier z bazy IGDB (zintegrowanej z Twitch). Użytkownik może filtrować gry według gatunków i platform, wyszukiwać po nazwie, a także dodawać ulubione tytuły do osobnej zakładki. Po wejściu w szczegóły gry prezentowane są: opis, screeny, materiały wideo oraz propozycje podobnych gier – w stylu sklepu PlayStation.",
@@ -15,5 +16,6 @@
   "role": "Rola",
   "teamlead": "Lider Zespołu",
   "reactNativeProgrammer": "Programista React Native",
-  "frontendDeveloper": "Programista Frontendowy"
+  "frontendDeveloper": "Programista Frontendowy",
+  "techstack": "Użyte technologie"
 }

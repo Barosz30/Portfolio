@@ -12,6 +12,7 @@ type PhotosProps = {
   description: string;
   callToAction: string;
   linkToProject: LinkType;
+  techstack?: string;
 };
 
 const SingleProject = ({
@@ -20,6 +21,7 @@ const SingleProject = ({
   description,
   callToAction,
   linkToProject,
+  techstack,
 }: PhotosProps) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -151,6 +153,11 @@ const SingleProject = ({
           </h1>
         )}
         <div className="description">{description}</div>
+        {techstack && (
+          <h1 className="description">
+            {t("techstack")}: {techstack}
+          </h1>
+        )}
         {linkToProject.type === "url" ? (
           <a
             href={linkToProject.value}
