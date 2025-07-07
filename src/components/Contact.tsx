@@ -69,13 +69,13 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex flex-col items-center gap-12">
           <div>
-            <h3 className="text-2xl font-semibold text-slate-800 mb-6">
+            <h3 className="text-2xl font-semibold text-center text-slate-800 mb-6">
               {t("hero.contact")}
             </h3>
 
-            <div className="space-y-6">
+            <div className="flex flex-col gap-6 lg:flex-row">
               {contactInfo.map((info, index) => (
                 <a
                   key={info.label}
@@ -97,54 +97,6 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-          </div>
-
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  name="name"
-                  placeholder={t("contact.name")}
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-white/60 backdrop-blur-sm border-white/20 focus:bg-white/80 transition-all duration-300"
-                />
-              </div>
-
-              <div>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder={t("contact.email.placeholder")}
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-white/60 backdrop-blur-sm border-white/20 focus:bg-white/80 transition-all duration-300"
-                />
-              </div>
-
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder={t("contact.message")}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="bg-white/60 backdrop-blur-sm border-white/20 focus:bg-white/80 transition-all duration-300 resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full theme-gradient text-white py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg border-0"
-              >
-                {t("contact.send")}
-              </Button>
-            </form>
           </div>
         </div>
       </div>
