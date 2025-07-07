@@ -1,130 +1,34 @@
-import "./App.css";
-import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "./components/LanguageSwitcher";
-import night from "./assets/images/night_sky.png";
-import day from "./assets/images/day_sky.png";
-import sakura from "./assets/images/sakura.png";
-import ThemeSwitcher from "./components/ThemeSwitcher";
-import { useTheme } from "./context/ThemeContext";
-import SingleProject from "./components/SingleProject";
-import shop1 from "./assets/images/shop1.webp";
-import shop2 from "./assets/images/shop2.webp";
-import shop3 from "./assets/images/shop3.webp";
-import shop4 from "./assets/images/shop4.webp";
-import gamesDatabase1 from "./assets/images/games_database1.webp";
-import gamesDatabase2 from "./assets/images/games_database2.webp";
-import gamesDatabase3 from "./assets/images/games_database3.webp";
-import gamesDatabase4 from "./assets/images/games_database4.webp";
-import bike1 from "./assets/images/Bike1.webp";
-import bike2 from "./assets/images/Bike2.webp";
-import bike3 from "./assets/images/Bike3.webp";
-import bike4 from "./assets/images/Bike4.webp";
-import gamesQR from "./assets/images/games_database_qr.webp";
-import ChatbotWidget from "./components/ChatbotWidget";
-import { useIsAtTop } from "./hooks/useIsAtTop";
-import funfolio from "./assets/images/FunFolio.png";
 
-function App() {
-  const { t } = useTranslation();
-  const { theme } = useTheme();
-  const isAtTop = useIsAtTop();
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
-  const shopImages = [shop1, shop2, shop3, shop4];
-  const shopDescription = t("shop_description");
-  const shopCallToAction = t("call_to_action");
-  const shopLink = "https://catalog-deploy-barosz30s-projects.vercel.app/";
-  const shopRole = t("teamlead");
-  const shopTechStack =
-    "Next.js, Typescript, Tailwind, Clerk, Git, React, SASS (SCSS), Sequelize, PostgreSQL, Node.js, Express, RWD";
+const queryClient = new QueryClient();
 
-  const gamesDatabaseImages = [
-    gamesDatabase1,
-    gamesDatabase2,
-    gamesDatabase3,
-    gamesDatabase4,
-  ];
-  const gamesDatabaseDescription = t("games_database_description");
-  const gamesDatabaseImage = gamesQR;
-  const gamesDatabaseRole = t("reactNativeProgrammer");
-  const gamesDatabaseTechStack =
-    "React Native, Typescript, REST API, HTML, SCSS, Nativewind/Tailwind";
-
-  const bikeImages = [bike1, bike2, bike3, bike4];
-  const bikeDescription = t("bike_description");
-  const bikeLink = "https://barosz30.github.io/bikestore_layout/";
-  const bikeRole = t("frontendDeveloper");
-  const bikeTechStack = "HTML, SCSS, CSS, BEM, RWD, JavaScript";
-
-  let background;
-
-  switch (theme) {
-    case "dark":
-      background = night;
-      break;
-    case "light":
-      background = day;
-      break;
-    case "sakura":
-      background = sakura;
-      break;
-    default:
-      background = day;
-  }
-
-  return (
-    <>
-      <nav className={`navbar ${!isAtTop ? "hide-controls" : ""}`}>
-        <div className={"navbar-container"}>
-          <ThemeSwitcher />
-
-          {theme === "dark" ? (
-            <div className={"dark-background"}>
-              <img
-                src={funfolio}
-                alt="Mirosław Wandyk logo"
-                className="navbar-logo-img"
-              />
-            </div>
-          ) : (
-            <img
-              src={funfolio}
-              alt="Mirosław Wandyk logo"
-              className="navbar-logo-img"
-            />
-          )}
-
-          <LanguageSwitcher />
-        </div>
-      </nav>
-      <div className="main" style={{ backgroundImage: `url(${background})` }}>
-        <SingleProject
-          photos={shopImages}
-          description={shopDescription}
-          callToAction={shopCallToAction}
-          linkToProject={{ type: "url", value: shopLink }}
-          role={shopRole}
-          techstack={shopTechStack}
-        />
-        <SingleProject
-          photos={gamesDatabaseImages}
-          description={gamesDatabaseDescription}
-          callToAction={shopCallToAction}
-          linkToProject={{ type: "qr", value: gamesDatabaseImage }}
-          role={gamesDatabaseRole}
-          techstack={gamesDatabaseTechStack}
-        />
-        <SingleProject
-          photos={bikeImages}
-          description={bikeDescription}
-          callToAction={shopCallToAction}
-          linkToProject={{ type: "url", value: bikeLink }}
-          role={bikeRole}
-          techstack={bikeTechStack}
-        />
-      </div>
-      <ChatbotWidget />
-    </>
-  );
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </ThemeProvider>
+  </QueryClientProvider>
+);
 
 export default App;
