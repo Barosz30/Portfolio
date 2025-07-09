@@ -58,6 +58,10 @@ const translations = {
     "projects.bikeshop.title": "Bicycle Shop Landing Page",
     "projects.bikeshop.desc":
       "A bicycle store landing page built based on a Figma design. The page was developed using a mobile-first approach and scales seamlessly across mobile, tablet, and desktop devices.",
+    "projects.matchgame.title": "Match 3 Game",
+    "projects.matchgame.desc":
+      "The Match-3 game project. The app follows a mobile-first approach and seamlessly adapts to various screen sizes — from smartphones and tablets to desktop computers.",
+
     "projects.code": "View Code",
     "projects.demo": "Live Demo",
 
@@ -158,6 +162,9 @@ const translations = {
     "projects.bikeshop.title": "Landing Page Sklepu Rowerowego",
     "projects.bikeshop.desc":
       "Landing page sklepu rowerowego stworzony na podstawie projektu z Figma. Strona została zaprojektowana w podejściu mobile-first i płynnie dostosowuje się do urządzeń mobilnych, tabletów oraz komputerów stacjonarnych.",
+    "projects.matchgame.title": "Gra Match 3",
+    "projects.matchgame.desc":
+      "Projekt gry Match 3. Aplikacja została zaprojektowana w podejściu mobile-first i płynnie dostosowuje się do różnych rozdzielczości — od smartfonów, przez tablety, aż po komputery stacjonarne.",
     "projects.code": "Zobacz Kod",
     "projects.demo": "Zobacz Aplikację",
 
