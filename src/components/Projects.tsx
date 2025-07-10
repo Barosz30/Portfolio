@@ -59,6 +59,8 @@ const Projects = () => {
     },
   ];
 
+  // strange
+
   return (
     <section id="projects" className="py-20 px-4 bg-white/30">
       <div className="max-w-6xl mx-auto">
