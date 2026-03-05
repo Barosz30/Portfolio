@@ -1,11 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SklepRowerowyImage from "@/assets/images/SklepRowerowy.webp";
 
 const Projects = () => {
   const { t } = useLanguage();
 
   const projects = [
+    {
+      title: t("projects.mechashopfrontend.title"),
+      description: t("projects.mechashopfrontend.desc"),
+      image: SklepRowerowyImage,
+      tags: [
+        "Angular",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "GraphQL",
+        "REST API",
+        "Stripe",
+        "SCSS",
+        "JWT",
+        "OAuth",
+        "Playwright",
+      ],
+      github: "https://github.com/Barosz30/MechaShopFront",
+      live: "https://mechashopfront.onrender.com/",
+    },
+    {
+      title: t("projects.mechashopbackend.title"),
+      description: t("projects.mechashopbackend.desc"),
+      image:
+        "https://images.unsplash.com/photo-1608452964553-9b4d97b2752f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=800&h=600&crop=focalpoint&fp-x=0.7&fp-y=0.5&fit=crop",
+      tags: [
+        "Nest.js",
+        "TypeScript",
+        "NeonDB",
+        "PostgreSQL",
+        "REST API",
+        "GraphQL",
+        "JWT",
+        "OAuth",
+        "Stripe",
+        "Cloudinary",
+      ],
+      github: "https://github.com/Barosz30/MechanicalShopBackend",
+      live: "https://mechanicalshopbackend.onrender.com/",
+    },
     {
       title: t("projects.shop.title"),
       description: t("projects.shop.desc"),
@@ -77,10 +118,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 h-full"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -89,7 +130,7 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1 min-h-0">
                 <h3 className="text-xl font-semibold text-slate-800 mb-3">
                   {project.title}
                 </h3>
@@ -109,7 +150,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto pt-2">
                   <Button
                     variant="outline"
                     size="sm"

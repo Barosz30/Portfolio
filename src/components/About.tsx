@@ -5,7 +5,7 @@ const About = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Code, label: t("about.experience"), value: "2+" },
+    { icon: Code, label: t("about.experience"), value: "3+" },
     { icon: Award, label: t("about.projects"), value: "10+" },
     { icon: Coffee, label: t("about.technologies"), value: "20+" },
     { icon: Github, label: t("about.contributions"), value: "200+" },

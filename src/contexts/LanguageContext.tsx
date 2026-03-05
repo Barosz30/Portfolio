@@ -15,7 +15,7 @@ const translations = {
     "hero.name": "Mirosław Wandyk",
     "hero.title": "Fullstack Engineer",
     "hero.description":
-      "Passionate developer specializing in JavaScript/TypeScript, React, Node.js, and mobile applications. I create scalable web solutions and user-friendly mobile experiences.",
+      "Passionate developer specializing in TypeScript, React, Next.js, Nest.js, Node.js, and mobile applications. I create scalable web solutions and user-friendly mobile experiences.",
     "hero.cta": "View My Work",
     "hero.contact": "Get In Touch",
 
@@ -25,10 +25,10 @@ const translations = {
       "Technologies and frameworks I work with to build modern applications",
     "skills.frontend": "Frontend Development",
     "skills.frontend.desc":
-      "React, TypeScript, Next.js, Vue.js, HTML5, CSS3, Tailwind CSS, responsive design",
+      "React, TypeScript, Next.js, Vue.js, Angular, HTML5, CSS3, Tailwind CSS, responsive design",
     "skills.backend": "Backend Development",
     "skills.backend.desc":
-      "Node.js, Express, NestJS, REST APIs, GraphQL, microservices architecture",
+      "Node.js, Express, NestJS, PostgreSQL, REST APIs, GraphQL, JWT, OAuth, Stripe, Cloudinary",
     "skills.mobile": "Mobile Development",
     "skills.mobile.desc":
       "React Native, Expo, iOS/Android deployment, cross-platform solutions",
@@ -43,7 +43,7 @@ const translations = {
       "Scalable applications, design patterns, performance optimization, code quality",
     "skills.ai": "Artificial Intelligence",
     "skills.ai.desc":
-      "Integration of AI models and chatbots using OpenAI, LangChain, and ML frameworks.",
+      "Working with Cursor and Gemini. Integration of AI models and chatbots using OpenAI, LangChain, and ML frameworks.",
 
     // Projects section
     "projects.title": "Featured Projects",
@@ -67,12 +67,9 @@ const translations = {
 
     // About section
     "about.title": "About Me",
-    "about.p1":
-      "I'm a full-stack developer focused on React, Next.js, Node.js, and TypeScript, with experience in building both web and mobile apps. I’ve worked commercially on SPAs and PWAs using Context, Redux, Capacitor, and a broad range of front-end and back-end tools.",
-    "about.p2":
-      "I turn Figma designs into fully functional UIs, ensuring performance and clean code. I’ve collaborated on projects from e-commerce platforms to mobile game catalogs, using modern technologies such as Tailwind, Material UI, and PostgreSQL.",
-    "about.p3":
-      "Outside of coding, I improve my skills by solving algorithmic challenges (200+) and sharing knowledge. My background in event management taught me teamwork and creative problem-solving.",
+    "about.p1": "As a Fullstack Developer, I specialize in delivering end-to-end solutions built with Node.js and React/Next.js. I architect applications from efficient TypeScript backends and robust state management (Redux, Context) to mobile-first PWA solutions using Capacitor. My core approach is bridging the gap between complex server logic and a fluid user experience.",
+    "about.p2": "I do more than just translate Figma designs into code—I ensure their seamless integration with the data layer. I have hands-on experience in relational database design (PostgreSQL) and building scalable APIs. Whether developing e-commerce platforms or game catalogs, I prioritize clean code, query optimization, and modern styling with Tailwind or Material UI.",
+    "about.p3": "My analytical mindset is backed by 200+ solved algorithmic challenges, which directly translates into writing high-performance backend logic. Furthermore, my background in event management has equipped me with the ability to work under pressure and communicate effectively within a team—essential traits for delivering complex technical projects on time.",
     "about.experience": "Years of Experience",
     "about.projects": "Completed Projects",
     "about.technologies": "Technologies in Stack",
@@ -97,7 +94,7 @@ const translations = {
     "chatbot.subtitle": "I'm here to help!",
     "chatbot.placeholder": "Type your question...",
     "chatbot.welcome":
-      "Hi! I'm here to answer questions about my skills, experience, and projects. What would you like to know?",
+      "Hi! I'm here to answer questions about my skills, experience, and projects. What would you like to know? (Sorry if first response will be a bit slow, i need to wake up ;) ",
     "chatbot.skills":
       "I specialize in JavaScript/TypeScript, React, Node.js, and mobile development with React Native. I also work with modern tools like Next.js, Express, AWS, and various databases.",
     "chatbot.experience":
@@ -119,7 +116,7 @@ const translations = {
     "hero.name": "Mirosław Wandyk",
     "hero.title": "Fullstack Developer",
     "hero.description":
-      "Pasjonat programowania specjalizujący się w JavaScript/TypeScript, React, Node.js i aplikacjach mobilnych. Tworzę skalowalne rozwiązania webowe i przyjazne użytkownikowi aplikacje mobilne.",
+      "Pasjonat programowania specjalizujący się w TypeScript, React, Next.js, Nest.js, Node.js i aplikacjach mobilnych. Tworzę skalowalne rozwiązania webowe i przyjazne użytkownikowi aplikacje mobilne.",
     "hero.cta": "Zobacz Moje Prace",
     "hero.contact": "Skontaktuj Się",
 
@@ -129,10 +126,10 @@ const translations = {
       "Technologie i frameworki, których używam do budowania nowoczesnych aplikacji",
     "skills.frontend": "Frontend Development",
     "skills.frontend.desc":
-      "React, TypeScript, Next.js, Vue.js, HTML5, CSS3, Tailwind CSS, responsive design",
+      "React, TypeScript, Next.js, Vue.js, Angular, HTML5, CSS3, Tailwind CSS, responsywny design",
     "skills.backend": "Backend Development",
     "skills.backend.desc":
-      "Node.js, Express, NestJS, REST API, GraphQL, architektura mikroserwisów",
+      "Node.js, Express, NestJS, PostgreSQL, REST APIs, GraphQL, JWT, OAuth, Stripe, Cloudinary",
     "skills.mobile": "Rozwój Mobilny",
     "skills.mobile.desc":
       "React Native, Expo, wdrażanie iOS/Android, rozwiązania wieloplatformowe",
@@ -147,12 +144,18 @@ const translations = {
       "Skalowalne aplikacje, wzorce projektowe, optymalizacja wydajności, jakość kodu",
     "skills.ai": "Sztuczna Inteligencja",
     "skills.ai.desc":
-      "Integracja modeli AI oraz chatbotów z wykorzystaniem OpenAI, LangChain i frameworków ML.",
+      "Pracuję z Cursor i Gemini. Integracja modeli AI oraz chatbotów z wykorzystaniem OpenAI, LangChain i frameworków ML.",
 
     // Projects section
     "projects.title": "Wybrane Projekty",
     "projects.subtitle":
       "Kolekcja projektów pokazujących moje umiejętności techniczne i zdolności rozwiązywania problemów",
+    "projects.mechashopbackend.title": "Backend aplikacji sklepowej",
+    "projects.mechashopbackend.desc":
+      "Serce sklepu internetowego, postawione na Nest.js. Baza danych jest postawiona na NeonDB. Płatności są obsługiwane przez Stripe. Autoryzacja przez login i hasło oraz OAuth, zwraca JWT.",
+    "projects.mechashopfrontend.title": "Frontend aplikacji sklepowej",
+    "projects.mechashopfrontend.desc":
+      "Front postawiony na Angularze 21. Płatności są obsługiwane przez Stripe. Logowanie przez login i hasło lub OAuth z Google. Numer karty do udawanych płatności jest podany w koszyku ;)",
     "projects.shop.title": "Sklep Internetowy",
     "projects.shop.desc":
       "Aplikacja stworzona w trzyosobowym zespole, w którym pełniłem rolę lidera zespołu. Projekt zrealizowaliśmy w technologii Next.js, wykorzystując MongoDB jako bazę danych (no-sql) oraz Clerk do obsługi autentycacji.",
@@ -171,12 +174,10 @@ const translations = {
     // About section
 
     "about.title": "O Mnie",
-    "about.p1":
-      "Jestem fullstack developerem specjalizującym się w React, Next.js, Node.js i TypeScript, z doświadczeniem w budowie aplikacji webowych i mobilnych. Pracowałem komercyjnie nad SPA i PWA, wykorzystując Context, Redux, Capacitor oraz wiele narzędzi frontendowych i backendowych.",
+    "about.p1": "Jako Fullstack Developer specjalizuję się w dostarczaniu kompletnych rozwiązań opartych na Node.js i React/Next.js. Projektuję architekturę aplikacji od wydajnego backendu w TypeScript, przez zarządzanie stanem (Redux, Context), aż po aplikacje mobilne i PWA z wykorzystaniem Capacitora. Moje podejście to łączenie logiki serwerowej z płynnym UX.",
     "about.p2":
-      "Tłumaczę projekty z Figma na w pełni funkcjonalne interfejsy użytkownika, dbając o wydajność i czystość kodu. Współpracowałem przy wielu projektach – od aplikacji e-commerce po katalogi gier – stosując nowoczesne technologie jak Tailwind, Material UI czy PostgreSQL.",
-    "about.p3":
-      "Poza kodowaniem rozwijam się przez rozwiązywanie zadań algorytmicznych (200+) i dzielenie się wiedzą z innymi. Z doświadczenia event managera wyniosłem umiejętności pracy zespołowej i rozwiązywania problemów.",
+    "Nie tylko przenoszę projekty z Figma do kodu, ale dbam o ich pełną integrację z warstwą danych. Mam doświadczenie w projektowaniu relacyjnych baz danych (PostgreSQL) oraz budowie skalowalnych API. Pracując nad systemami e-commerce czy katalogami gier, zawsze stawiam na czysty kod, optymalizację zapytań i nowoczesne narzędzia jak Tailwind czy Material UI.",
+    "about.p3": "Moje analityczne podejście potwierdza ponad 200 rozwiązanych zadań algorytmicznych, co bezpośrednio przekłada się na optymalizację procesów po stronie backendu. Doświadczenie w event managemencie nauczyło mnie pracy pod presją czasu i skutecznej komunikacji w zespole – cech kluczowych przy dowożeniu złożonych projektów technologicznych.",
     "about.experience": "Lat Doświadczenia",
     "about.projects": "Zrealizowanych Projektów",
     "about.technologies": "Technologii w Stacku",
@@ -201,7 +202,7 @@ const translations = {
     "chatbot.subtitle": "Jestem tutaj, żeby pomóc!",
     "chatbot.placeholder": "Wpisz swoje pytanie...",
     "chatbot.welcome":
-      "Cześć! Jestem tutaj, żeby odpowiedzieć na pytania o moje umiejętności, doświadczenie i projekty. Co chciałbyś wiedzieć?",
+      "Cześć! Jestem tutaj, żeby odpowiedzieć na pytania o moje umiejętności, doświadczenie i projekty. Co chciałbyś wiedzieć? (Wybacz jeśli pierwsza odpowiedź będzie powolna, musze się obudzić ;)",
     "chatbot.skills":
       "Specjalizuję się w JavaScript/TypeScript, React, Node.js i rozwoju mobilnym z React Native. Pracuję też z nowoczesnymi narzędziami jak Next.js, Express, AWS i różnymi bazami danych.",
     "chatbot.experience":

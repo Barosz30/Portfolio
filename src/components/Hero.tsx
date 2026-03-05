@@ -71,15 +71,15 @@ const Hero = () => {
               <Mail className="w-6 h-6 text-slate-700" />
             </a>
           </div>
-        </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="p-2 rounded-full bg-white/50 backdrop-blur-sm border border-white/20 hover:bg-white/70 transition-all duration-300"
-          >
-            <ArrowDown className="w-6 h-6 text-slate-700" />
-          </button>
+          <div className="flex justify-center mt-6 animate-bounce">
+            <button
+              onClick={() => scrollToSection("skills")}
+              className="p-2 rounded-full bg-white/50 backdrop-blur-sm border border-white/20 hover:bg-white/70 transition-all duration-300"
+            >
+              <ArrowDown className="w-6 h-6 text-slate-700" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
