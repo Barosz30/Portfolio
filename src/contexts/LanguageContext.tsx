@@ -49,6 +49,12 @@ const translations = {
     "projects.title": "Featured Projects",
     "projects.subtitle":
       "A collection of projects showcasing my technical skills and problem-solving abilities",
+    "projects.mechashopbackend.title": "E-commerce application backend",
+    "projects.mechashopbackend.desc":
+      "The heart of an online store, built with Nest.js. The database runs on NeonDB. Payments are handled by Stripe. Authentication via username and password as well as OAuth. Uses JWT.",
+    "projects.mechashopfrontend.title": "E-commerce application frontend",
+    "projects.mechashopfrontend.desc":
+      "Frontend built with Angular 21. Payments are handled by Stripe. Sign-in via username and password or Google OAuth. The card number for mock payments is provided in the cart ;)",
     "projects.shop.title": "Online Shop",
     "projects.shop.desc":
       "An application developed by a three-person team, where I served as the team lead. We built the project using Next.js, with MongoDB as the database (no-sql) and Clerk for user authentication.",
@@ -152,7 +158,7 @@ const translations = {
       "Kolekcja projektów pokazujących moje umiejętności techniczne i zdolności rozwiązywania problemów",
     "projects.mechashopbackend.title": "Backend aplikacji sklepowej",
     "projects.mechashopbackend.desc":
-      "Serce sklepu internetowego, postawione na Nest.js. Baza danych jest postawiona na NeonDB. Płatności są obsługiwane przez Stripe. Autoryzacja przez login i hasło oraz OAuth, zwraca JWT.",
+      "Serce sklepu internetowego, postawione na Nest.js. Baza danych jest postawiona na NeonDB. Płatności są obsługiwane przez Stripe. Autoryzacja przez login i hasło oraz OAuth. Używa JWT.",
     "projects.mechashopfrontend.title": "Frontend aplikacji sklepowej",
     "projects.mechashopfrontend.desc":
       "Front postawiony na Angularze 21. Płatności są obsługiwane przez Stripe. Logowanie przez login i hasło lub OAuth z Google. Numer karty do udawanych płatności jest podany w koszyku ;)",
