@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Mirosław Wandyk — Full-Stack Engineer · Portfolio",
+    "description": "Portfolio Mirosława Wandyka — Full-Stack Engineer. Projekty e-commerce, mobile, PWA i więcej."
+  },
+  "nav": {
+    "about": "O mnie",
+    "projects": "Projekty",
+    "skills": "Umiejętności",
+    "contact": "Kontakt",
+    "langSwitch": "Wybierz język"
+  },
+  "themeToggleAria": "Przełącz motyw",
+  "hero": {
+    "eyebrow": "Full-Stack Engineer · Remote / Hybrid",
+    "subtitle": "Buduję aplikacje webowe w <em>TypeScript, Next.js i Nest.js</em> — od MedTech po e-commerce, z naciskiem na wydajność i <em>100/100 Lighthouse</em>.",
+    "ctaProjects": "Zobacz projekty",
+    "ctaContact": "Kontakt",
+    "statYears": "lata komercyjnie",
+    "statProjects": "projektów+",
+    "statLighthouse": "Lighthouse score",
+    "globeAria": "Interaktywny glob 3D — przeciągnij myszą",
+    "globeHint": "Przeciągnij glob · Ziemia 3D"
+  },
+  "marqueeAria": "Technologie",
+  "about": {
+    "title": "O mnie",
+    "p1": "Full-Stack Engineer z <strong>~2 latami doświadczenia komercyjnego</strong> w budowaniu aplikacji produkcyjnych w <strong class=\"neon-text\">TypeScript, Next.js i Nest.js</strong>. Pracuję zdalnie z Myszyńca — obecnie w <strong>DanCorp</strong> (MedTech), wcześniej <strong>Investimetric</strong> (SaaS, 500+ MAU).",
+    "p2": "Optymalizuję <strong>Core Web Vitals</strong> do 100/100 Lighthouse, integruję OAuth/Keycloak, Stripe i PostgreSQL. Poniżej znajdziesz moje projekty — od full-stack e-commerce po aplikacje mobilne i gry PWA.",
+    "h1": "Next.js · Nest.js · TypeScript",
+    "h2": "MedTech & E-commerce",
+    "h3": "Lighthouse 100/100",
+    "h4": "200+ zadań algorytmicznych"
+  },
+  "projects": {
+    "title": "Projekty",
+    "hint": "Najedź kursorem na kartę, aby zobaczyć pełny opis · na mobile — dotknij",
+    "backLabel": "O projekcie",
+    "github": "GitHub",
+    "mechaFront": {
+      "title": "MechaShop — Frontend",
+      "teaser": "React 19 · Vite · Stripe · OAuth",
+      "backTitle": "E-commerce — warstwa kliencka",
+      "desc": "Frontend sklepu internetowego zbudowany w React 19 i TypeScript z Vite jako narzędziem budowania. Tailwind CSS odpowiada za stylowanie, React Router za nawigację. Pełna autoryzacja przez JWT i Google OAuth. Płatności obsługuje Stripe. Testy jednostkowe (Vitest) i E2E (Playwright) zapewniają stabilność przed wdrożeniem na Render.",
+      "live": "Live demo →"
+    },
+    "mechaBack": {
+      "title": "MechaShop — Backend",
+      "teaser": "Nest.js · NeonDB · GraphQL",
+      "backTitle": "Serce sklepu online",
+      "desc": "Backend postawiony na Nest.js z bazą NeonDB (PostgreSQL). REST API uzupełnione o GraphQL. Autoryzacja login/hasło plus OAuth, tokeny JWT. Płatności Stripe, upload obrazów przez Cloudinary. Architektura modułowa Nest.js ułatwia rozbudowę o kolejne funkcje sklepu.",
+      "live": "API →"
+    },
+    "catalog": {
+      "title": "Sklep Internetowy",
+      "teaser": "Team Lead · Next.js · Clerk",
+      "backTitle": "Projekt zespołowy — Product Catalog",
+      "desc": "Aplikacja stworzona w trzyosobowym zespole, gdzie pełniłem rolę lidera technicznego. Next.js jako framework full-stack, MongoDB (NoSQL) jako baza danych, Clerk do autoryzacji użytkowników. Koordynacja pracy zespołu, code review i deploy na Vercel. Projekt akademicki z realnym workflow jak w komercyjnym zespole.",
+      "live": "Demo →"
+    },
+    "games": {
+      "title": "Baza Gier Mobile",
+      "teaser": "React Native · IGDB API",
+      "backTitle": "Games Database — aplikacja mobilna",
+      "desc": "Aplikacja mobilna w React Native / Expo do przeglądania gier z bazy IGDB (zintegrowanej z Twitch). Użytkownicy mogą wyszukiwać tytuły, przeglądać szczegóły i okładki. NativeWind (Tailwind dla RN) zapewnia spójny design system. REST API IGDB, TypeScript end-to-end, preview przez Expo Go.",
+      "live": "Expo →"
+    },
+    "bike": {
+      "title": "Sklep Rowerowy",
+      "teaser": "Figma → HTML · BEM · SCSS",
+      "backTitle": "Landing page sklepu rowerowego",
+      "desc": "Landing page zaprojektowany na podstawie makiet Figma. Podejście mobile-first — strona płynnie skaluje się od smartfonów przez tablety po desktop. Metodologia BEM dla czytelnej struktury CSS, SCSS dla zmiennych i mixinów. Czysty HTML/CSS/JS bez frameworków — idealny do nauki responsywnego layoutu i pixel-perfect implementacji.",
+      "live": "Strona →"
+    },
+    "match3": {
+      "title": "Match-3 — Gra PWA",
+      "teaser": "Vue / Nuxt · Supabase · mobile-first",
+      "backTitle": "Gra Match-3 z backendem w chmurze",
+      "desc": "Gra typu Match-3 zbudowana w Vue / Nuxt z TypeScript. Mobile-first — działa na smartfonach, tabletach i desktopie. Supabase (PostgreSQL) przechowuje wyniki i dane graczy. Tailwind CSS dla UI, PWA umożliwia instalację na urządzeniu. Logika gry, animacje dopasowań i responsywny grid planszy — wszystko w jednej aplikacji.",
+      "live": "Graj →"
+    },
+    "galleryLabel": "Galeria pozioma · scroll snap · przeciągnij myszą",
+    "gallery1": { "title": "E-commerce Full-Stack", "desc": "React + Nest.js · Stripe" },
+    "gallery2": { "title": "Team Project", "desc": "Next.js · MongoDB · Clerk" },
+    "gallery3": { "title": "Mobile App", "desc": "React Native · IGDB" },
+    "gallery4": { "title": "Landing Page", "desc": "Figma · SCSS · BEM" },
+    "gallery5": { "title": "PWA Game", "desc": "Vue · Nuxt · Supabase" },
+    "gallery6": { "title": "CSS Showcase", "desc": "20 efektów CSS" }
+  },
+  "skills": {
+    "title": "Umiejętności"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lead": "Myszyniec, Polska · Remote / Hybrid · Masz projekt? Napisz!",
+    "downloadCv": "Pobierz CV (ucieka!)"
+  },
+  "footer": {
+    "copy": "© 2026 Mirosław Wandyk · Portfolio",
+    "effects": "Globe 3D · Tilt · Magnetic · Flip · Scroll-driven · Stagger · Blob · Text reveal · Marquee · Glass · Gradient mesh · Neon · Spotlight · Clip-path · Bento · Container queries · Snap scroll · Custom cursor · Theme toggle"
+  }
+}

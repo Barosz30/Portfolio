@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/effects.css" />
   <link rel="stylesheet" href="css/sections.css" />
+  <script>
+    (function () {
+      var locale = localStorage.getItem('locale');
+      if (locale === 'pl' || locale === 'en') document.documentElement.lang = locale;
+    })();
+  </script>
 </head>
 <body>
   <div class="spotlight" aria-hidden="true"></div>
@@ -22,19 +28,25 @@
   <nav class="nav glass" id="nav">
     <a href="#hero" class="nav__logo">MW<span class="nav__dot">.</span></a>
     <ul class="nav__links">
-      <li><a href="#about">O mnie</a></li>
-      <li><a href="#projects">Projekty</a></li>
-      <li><a href="#skills">Umiejętności</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#about" data-i18n="nav.about">O mnie</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projekty</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Umiejętności</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
+    <div class="nav__actions">
+      <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.langSwitch">
+        <button type="button" class="lang-switch__btn is-active" data-locale="pl" aria-pressed="true">PL</button>
+        <button type="button" class="lang-switch__btn" data-locale="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" data-i18n-attr="aria-label:themeToggleAria">
       <span class="theme-toggle__track">
         <span class="theme-toggle__thumb">
           <span class="theme-toggle__sun">☀</span>
           <span class="theme-toggle__moon">☾</span>
         </span>
       </span>
-    </button>
+      </button>
+    </div>
   </nav>
 
   <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar"></div></div>
@@ -47,44 +59,44 @@
 
       <div class="hero__grid">
         <div class="hero__content">
-          <p class="hero__eyebrow reveal-text" data-reveal>Full-Stack Engineer · Remote / Hybrid</p>
+          <p class="hero__eyebrow reveal-text" data-reveal data-i18n="hero.eyebrow">Full-Stack Engineer · Remote / Hybrid</p>
           <h1 class="hero__title reveal-text" data-reveal>
             Mirosław <span class="neon-text">Wandyk</span>
           </h1>
-          <p class="hero__subtitle reveal-text" data-reveal>
+          <p class="hero__subtitle reveal-text" data-reveal data-i18n-html="hero.subtitle">
             Buduję aplikacje webowe w <em>TypeScript, Next.js i Nest.js</em> — od MedTech po e-commerce,
             z naciskiem na wydajność i <em>100/100 Lighthouse</em>.
           </p>
           <div class="hero__actions">
-            <a href="#projects" class="btn btn--primary magnetic-btn">Zobacz projekty</a>
-            <a href="#contact" class="btn btn--ghost magnetic-btn">Kontakt</a>
+            <a href="#projects" class="btn btn--primary magnetic-btn" data-i18n="hero.ctaProjects">Zobacz projekty</a>
+            <a href="#contact" class="btn btn--ghost magnetic-btn" data-i18n="hero.ctaContact">Kontakt</a>
           </div>
           <div class="hero__stats">
             <div class="stat-card glass scroll-reveal">
               <span class="stat-card__num" data-count="2">0</span>
-              <span class="stat-card__label">lata komercyjnie</span>
+              <span class="stat-card__label" data-i18n="hero.statYears">lata komercyjnie</span>
             </div>
             <div class="stat-card glass scroll-reveal">
               <span class="stat-card__num" data-count="10">0</span>
-              <span class="stat-card__label">projektów+</span>
+              <span class="stat-card__label" data-i18n="hero.statProjects">projektów+</span>
             </div>
             <div class="stat-card glass scroll-reveal">
               <span class="stat-card__num" data-count="100">0</span>
-              <span class="stat-card__label">Lighthouse score</span>
+              <span class="stat-card__label" data-i18n="hero.statLighthouse">Lighthouse score</span>
             </div>
           </div>
         </div>
 
         <div class="hero__globe-wrap scroll-reveal">
           <div class="globe-scene" id="globeScene">
-            <canvas id="globeCanvas" aria-label="Interaktywny glob 3D — przeciągnij myszą"></canvas>
+            <canvas id="globeCanvas" data-i18n-attr="aria-label:hero.globeAria"></canvas>
           </div>
-          <p class="globe-hint">Przeciągnij glob · Ziemia 3D</p>
+          <p class="globe-hint" data-i18n="hero.globeHint">Przeciągnij glob · Ziemia 3D</p>
         </div>
       </div>
     </section>
 
-    <section class="marquee-section" aria-label="Technologie">
+    <section class="marquee-section" data-i18n-attr="aria-label:marqueeAria">
       <div class="marquee">
         <div class="marquee__track">
           <span>TypeScript</span><span>React</span><span>Next.js</span><span>Nest.js</span>
@@ -101,7 +113,7 @@
 
     <section id="about" class="about section">
       <div class="section-header scroll-reveal">
-        <h2>O mnie</h2>
+        <h2 data-i18n="about.title">O mnie</h2>
       </div>
       <div class="about__grid">
         <div class="about__photo-wrap scroll-reveal">
@@ -111,22 +123,22 @@
           <div class="about__photo-ring" aria-hidden="true"></div>
         </div>
         <div class="about__content glass scroll-reveal">
-          <p>
+          <p data-i18n-html="about.p1">
             Full-Stack Engineer z <strong>~2 latami doświadczenia komercyjnego</strong> w budowaniu
             aplikacji produkcyjnych w <strong class="neon-text">TypeScript, Next.js i Nest.js</strong>.
             Pracuję zdalnie z Myszyńca — obecnie w <strong>DanCorp</strong> (MedTech), wcześniej
             <strong>Investimetric</strong> (SaaS, 500+ MAU).
           </p>
-          <p>
+          <p data-i18n-html="about.p2">
             Optymalizuję <strong>Core Web Vitals</strong> do 100/100 Lighthouse, integruję
             OAuth/Keycloak, Stripe i PostgreSQL. Poniżej znajdziesz moje projekty — od full-stack
             e-commerce po aplikacje mobilne i gry PWA.
           </p>
           <ul class="about__highlights stagger-list">
-            <li>Next.js · Nest.js · TypeScript</li>
-            <li>MedTech &amp; E-commerce</li>
-            <li>Lighthouse 100/100</li>
-            <li>200+ zadań algorytmicznych</li>
+            <li data-i18n="about.h1">Next.js · Nest.js · TypeScript</li>
+            <li data-i18n="about.h2">MedTech &amp; E-commerce</li>
+            <li data-i18n="about.h3">Lighthouse 100/100</li>
+            <li data-i18n="about.h4">200+ zadań algorytmicznych</li>
           </ul>
         </div>
       </div>
@@ -134,8 +146,8 @@
 
     <section id="projects" class="projects section">
       <div class="section-header scroll-reveal">
-        <h2>Projekty</h2>
-        <p class="section-header__hint">Najedź kursorem na kartę, aby zobaczyć pełny opis · na mobile — dotknij</p>
+        <h2 data-i18n="projects.title">Projekty</h2>
+        <p class="section-header__hint" data-i18n="projects.hint">Najedź kursorem na kartę, aby zobaczyć pełny opis · na mobile — dotknij</p>
       </div>
 
       <div class="bento-grid bento-grid--6">
@@ -145,8 +157,8 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">🛒</div>
-                <h3>MechaShop — Frontend</h3>
-                <p class="project-card__teaser">React 19 · Vite · Stripe · OAuth</p>
+                <h3 data-i18n="projects.mechaFront.title">MechaShop — Frontend</h3>
+                <p class="project-card__teaser" data-i18n="projects.mechaFront.teaser">React 19 · Vite · Stripe · OAuth</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">React 19</span>
                   <span class="project-card__tag">TypeScript</span>
@@ -154,9 +166,9 @@
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>E-commerce — warstwa kliencka</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.mechaFront.backTitle">E-commerce — warstwa kliencka</h3>
+                <p class="project-card__desc" data-i18n="projects.mechaFront.desc">
                   Frontend sklepu internetowego zbudowany w React 19 i TypeScript z Vite jako narzędziem
                   budowania. Tailwind CSS odpowiada za stylowanie, React Router za nawigację. Pełna
                   autoryzacja przez JWT i Google OAuth. Płatności obsługuje Stripe. Testy jednostkowe
@@ -170,8 +182,8 @@
                   <span class="project-card__tag">JWT</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/Barosz30/MechaShopFront" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://mechashopfront.onrender.com/" target="_blank" rel="noopener" class="btn btn--sm">Live demo →</a>
+                  <a href="https://github.com/Barosz30/MechaShopFront" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://mechashopfront.onrender.com/" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.mechaFront.live">Live demo →</a>
                 </div>
               </div>
             </div>
@@ -184,17 +196,17 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">⚙️</div>
-                <h3>MechaShop — Backend</h3>
-                <p class="project-card__teaser">Nest.js · NeonDB · GraphQL</p>
+                <h3 data-i18n="projects.mechaBack.title">MechaShop — Backend</h3>
+                <p class="project-card__teaser" data-i18n="projects.mechaBack.teaser">Nest.js · NeonDB · GraphQL</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">Nest.js</span>
                   <span class="project-card__tag">PostgreSQL</span>
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>Serce sklepu online</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.mechaBack.backTitle">Serce sklepu online</h3>
+                <p class="project-card__desc" data-i18n="projects.mechaBack.desc">
                   Backend postawiony na Nest.js z bazą NeonDB (PostgreSQL). REST API uzupełnione
                   o GraphQL. Autoryzacja login/hasło plus OAuth, tokeny JWT. Płatności Stripe,
                   upload obrazów przez Cloudinary. Architektura modułowa Nest.js ułatwia rozbudowę
@@ -207,8 +219,8 @@
                   <span class="project-card__tag">OAuth</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/Barosz30/MechanicalShopBackend" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://mechanicalshopbackend.onrender.com/" target="_blank" rel="noopener" class="btn btn--sm">API →</a>
+                  <a href="https://github.com/Barosz30/MechanicalShopBackend" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://mechanicalshopbackend.onrender.com/" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.mechaBack.live">API →</a>
                 </div>
               </div>
             </div>
@@ -221,17 +233,17 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">📦</div>
-                <h3>Sklep Internetowy</h3>
-                <p class="project-card__teaser">Team Lead · Next.js · Clerk</p>
+                <h3 data-i18n="projects.catalog.title">Sklep Internetowy</h3>
+                <p class="project-card__teaser" data-i18n="projects.catalog.teaser">Team Lead · Next.js · Clerk</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">Next.js</span>
                   <span class="project-card__tag">MongoDB</span>
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>Projekt zespołowy — Product Catalog</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.catalog.backTitle">Projekt zespołowy — Product Catalog</h3>
+                <p class="project-card__desc" data-i18n="projects.catalog.desc">
                   Aplikacja stworzona w trzyosobowym zespole, gdzie pełniłem rolę lidera technicznego.
                   Next.js jako framework full-stack, MongoDB (NoSQL) jako baza danych, Clerk do
                   autoryzacji użytkowników. Koordynacja pracy zespołu, code review i deploy na Vercel.
@@ -243,8 +255,8 @@
                   <span class="project-card__tag">Vercel</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/PL-FE-SEP23-TeamMushrom/ProductCatalog" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://catalog-deploy-barosz30s-projects.vercel.app/" target="_blank" rel="noopener" class="btn btn--sm">Demo →</a>
+                  <a href="https://github.com/PL-FE-SEP23-TeamMushrom/ProductCatalog" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://catalog-deploy-barosz30s-projects.vercel.app/" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.catalog.live">Demo →</a>
                 </div>
               </div>
             </div>
@@ -257,17 +269,17 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">🎮</div>
-                <h3>Baza Gier Mobile</h3>
-                <p class="project-card__teaser">React Native · IGDB API</p>
+                <h3 data-i18n="projects.games.title">Baza Gier Mobile</h3>
+                <p class="project-card__teaser" data-i18n="projects.games.teaser">React Native · IGDB API</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">Expo</span>
                   <span class="project-card__tag">NativeWind</span>
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>Games Database — aplikacja mobilna</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.games.backTitle">Games Database — aplikacja mobilna</h3>
+                <p class="project-card__desc" data-i18n="projects.games.desc">
                   Aplikacja mobilna w React Native / Expo do przeglądania gier z bazy IGDB
                   (zintegrowanej z Twitch). Użytkownicy mogą wyszukiwać tytuły, przeglądać szczegóły
                   i okładki. NativeWind (Tailwind dla RN) zapewnia spójny design system.
@@ -279,8 +291,8 @@
                   <span class="project-card__tag">REST API</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/Barosz30/games_database" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://expo.dev/preview/update?message=Initial%20publish&updateRuntimeVersion=1.0.1&createdAt=2025-07-07T08%3A47%3A49.992Z&slug=exp&projectId=a02da5dc-75be-45f9-94fb-8ae288463e2e&group=541091ce-6a13-4e65-bb06-95e76d2bef1d" target="_blank" rel="noopener" class="btn btn--sm">Expo →</a>
+                  <a href="https://github.com/Barosz30/games_database" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://expo.dev/preview/update?message=Initial%20publish&updateRuntimeVersion=1.0.1&createdAt=2025-07-07T08%3A47%3A49.992Z&slug=exp&projectId=a02da5dc-75be-45f9-94fb-8ae288463e2e&group=541091ce-6a13-4e65-bb06-95e76d2bef1d" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.games.live">Expo →</a>
                 </div>
               </div>
             </div>
@@ -293,17 +305,17 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">🚴</div>
-                <h3>Sklep Rowerowy</h3>
-                <p class="project-card__teaser">Figma → HTML · BEM · SCSS</p>
+                <h3 data-i18n="projects.bike.title">Sklep Rowerowy</h3>
+                <p class="project-card__teaser" data-i18n="projects.bike.teaser">Figma → HTML · BEM · SCSS</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">SCSS</span>
                   <span class="project-card__tag">BEM</span>
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>Landing page sklepu rowerowego</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.bike.backTitle">Landing page sklepu rowerowego</h3>
+                <p class="project-card__desc" data-i18n="projects.bike.desc">
                   Landing page zaprojektowany na podstawie makiet Figma. Podejście mobile-first —
                   strona płynnie skaluje się od smartfonów przez tablety po desktop. Metodologia BEM
                   dla czytelnej struktury CSS, SCSS dla zmiennych i mixinów. Czysty HTML/CSS/JS
@@ -315,8 +327,8 @@
                   <span class="project-card__tag">JavaScript</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/Barosz30/bikestore_layout" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://barosz30.github.io/bikestore_layout/" target="_blank" rel="noopener" class="btn btn--sm">Strona →</a>
+                  <a href="https://github.com/Barosz30/bikestore_layout" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://barosz30.github.io/bikestore_layout/" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.bike.live">Strona →</a>
                 </div>
               </div>
             </div>
@@ -329,8 +341,8 @@
             <div class="flip-card__inner">
               <div class="flip-card__front">
                 <div class="project-card__icon">🧩</div>
-                <h3>Match-3 — Gra PWA</h3>
-                <p class="project-card__teaser">Vue / Nuxt · Supabase · mobile-first</p>
+                <h3 data-i18n="projects.match3.title">Match-3 — Gra PWA</h3>
+                <p class="project-card__teaser" data-i18n="projects.match3.teaser">Vue / Nuxt · Supabase · mobile-first</p>
                 <div class="project-card__tags">
                   <span class="project-card__tag">Vue</span>
                   <span class="project-card__tag">Nuxt</span>
@@ -338,9 +350,9 @@
                 </div>
               </div>
               <div class="flip-card__back">
-                <span class="flip-card__back-label">O projekcie</span>
-                <h3>Gra Match-3 z backendem w chmurze</h3>
-                <p class="project-card__desc">
+                <span class="flip-card__back-label" data-i18n="projects.backLabel">O projekcie</span>
+                <h3 data-i18n="projects.match3.backTitle">Gra Match-3 z backendem w chmurze</h3>
+                <p class="project-card__desc" data-i18n="projects.match3.desc">
                   Gra typu Match-3 zbudowana w Vue / Nuxt z TypeScript. Mobile-first — działa na
                   smartfonach, tabletach i desktopie. Supabase (PostgreSQL) przechowuje wyniki i
                   dane graczy. Tailwind CSS dla UI, PWA umożliwia instalację na urządzeniu.
@@ -353,8 +365,8 @@
                   <span class="project-card__tag">PostgreSQL</span>
                 </div>
                 <div class="flip-card__actions">
-                  <a href="https://github.com/Barosz30/Match-3" target="_blank" rel="noopener" class="btn btn--ghost-sm">GitHub</a>
-                  <a href="https://match-3-lyart.vercel.app/" target="_blank" rel="noopener" class="btn btn--sm">Graj →</a>
+                  <a href="https://github.com/Barosz30/Match-3" target="_blank" rel="noopener" class="btn btn--ghost-sm" data-i18n="projects.github">GitHub</a>
+                  <a href="https://match-3-lyart.vercel.app/" target="_blank" rel="noopener" class="btn btn--sm" data-i18n="projects.match3.live">Graj →</a>
                 </div>
               </div>
             </div>
@@ -363,21 +375,21 @@
       </div>
 
       <div class="snap-gallery-wrap scroll-reveal">
-        <p class="snap-gallery__label">Galeria pozioma · scroll snap · przeciągnij myszą</p>
+        <p class="snap-gallery__label" data-i18n="projects.galleryLabel">Galeria pozioma · scroll snap · przeciągnij myszą</p>
         <div class="snap-gallery">
-          <div class="snap-card glass"><span>01</span><h4>E-commerce Full-Stack</h4><p>React + Nest.js · Stripe</p></div>
-          <div class="snap-card glass"><span>02</span><h4>Team Project</h4><p>Next.js · MongoDB · Clerk</p></div>
-          <div class="snap-card glass"><span>03</span><h4>Mobile App</h4><p>React Native · IGDB</p></div>
-          <div class="snap-card glass"><span>04</span><h4>Landing Page</h4><p>Figma · SCSS · BEM</p></div>
-          <div class="snap-card glass"><span>05</span><h4>PWA Game</h4><p>Vue · Nuxt · Supabase</p></div>
-          <div class="snap-card glass"><span>06</span><h4>CSS Showcase</h4><p>20 efektów CSS</p></div>
+          <div class="snap-card glass"><span>01</span><h4 data-i18n="projects.gallery1.title">E-commerce Full-Stack</h4><p data-i18n="projects.gallery1.desc">React + Nest.js · Stripe</p></div>
+          <div class="snap-card glass"><span>02</span><h4 data-i18n="projects.gallery2.title">Team Project</h4><p data-i18n="projects.gallery2.desc">Next.js · MongoDB · Clerk</p></div>
+          <div class="snap-card glass"><span>03</span><h4 data-i18n="projects.gallery3.title">Mobile App</h4><p data-i18n="projects.gallery3.desc">React Native · IGDB</p></div>
+          <div class="snap-card glass"><span>04</span><h4 data-i18n="projects.gallery4.title">Landing Page</h4><p data-i18n="projects.gallery4.desc">Figma · SCSS · BEM</p></div>
+          <div class="snap-card glass"><span>05</span><h4 data-i18n="projects.gallery5.title">PWA Game</h4><p data-i18n="projects.gallery5.desc">Vue · Nuxt · Supabase</p></div>
+          <div class="snap-card glass"><span>06</span><h4 data-i18n="projects.gallery6.title">CSS Showcase</h4><p data-i18n="projects.gallery6.desc">20 efektów CSS</p></div>
         </div>
       </div>
     </section>
 
     <section id="skills" class="skills section">
       <div class="section-header scroll-reveal">
-        <h2>Umiejętności</h2>
+        <h2 data-i18n="skills.title">Umiejętności</h2>
       </div>
 
       <div class="skills__bars">
@@ -423,18 +435,18 @@
 
     <section id="contact" class="contact section">
       <div class="section-header scroll-reveal">
-        <h2>Kontakt</h2>
+        <h2 data-i18n="contact.title">Kontakt</h2>
       </div>
 
       <div class="contact__box glass scroll-reveal">
-        <p class="contact__lead">Myszyniec, Polska · Remote / Hybrid · Masz projekt? Napisz!</p>
+        <p class="contact__lead" data-i18n="contact.lead">Myszyniec, Polska · Remote / Hybrid · Masz projekt? Napisz!</p>
 
         <div class="contact__actions">
           <a href="mailto:miroslaw.wandyk@gmail.com" class="btn btn--primary btn--large magnetic-btn contact__real-cta">
             miroslaw.wandyk@gmail.com
           </a>
           <a href="tel:+48504188172" class="btn btn--ghost btn--large magnetic-btn">+48 504 188 172</a>
-          <button type="button" class="btn btn--ghost btn--large runaway-btn" id="runawayBtn">
+          <button type="button" class="btn btn--ghost btn--large runaway-btn" id="runawayBtn" data-i18n="contact.downloadCv">
             Pobierz CV (ucieka!)
           </button>
         </div>
@@ -448,14 +460,15 @@
   </main>
 
   <footer class="footer">
-    <p>© 2026 Mirosław Wandyk · Portfolio</p>
-    <p class="footer__effects">
+    <p data-i18n="footer.copy">© 2026 Mirosław Wandyk · Portfolio</p>
+    <p class="footer__effects" data-i18n="footer.effects">
       Globe 3D · Tilt · Magnetic · Flip · Scroll-driven · Stagger · Blob · Text reveal ·
       Marquee · Glass · Gradient mesh · Neon · Spotlight · Clip-path · Bento · Container queries ·
       Snap scroll · Custom cursor · Theme toggle
     </p>
   </footer>
 
+  <script type="module" src="js/i18n.js"></script>
   <script type="module" src="js/globe.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>

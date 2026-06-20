@@ -501,3 +501,41 @@ body.cursor-hover .cursor-ring {
     animation-duration: 0.5s;
   }
 }
+
+/* Language switch */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lang-switch__btn {
+  background: none;
+  border: none;
+  cursor: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  transition: color 0.25s, background 0.25s;
+}
+
+.lang-switch__btn:hover {
+  color: var(--text);
+}
+
+.lang-switch__btn.is-active {
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.35), rgba(0, 212, 170, 0.2));
+}
+
+@media (pointer: coarse) {
+  .lang-switch__btn { cursor: pointer; }
+}
