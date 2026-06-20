@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirosław Wandyk — Full-Stack Engineer</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #4a4a4a;
+      --accent: #1e4d7b;
+      --line: #d8dee6;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--text);
+      background: #eef1f5;
+      padding: 32px 16px;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 42px 48px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .title {
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    .page-break-before {
+      break-before: page;
+      page-break-before: always;
+    }
+
+    h2 {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 6px;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 8px;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .job {
+      margin-bottom: 16px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+    }
+
+    .job-date {
+      font-size: 9.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .job-meta {
+      font-size: 9.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      margin: 0 0 6px 18px;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .tech {
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .tech strong {
+      color: var(--text);
+    }
+
+    .project {
+      margin-bottom: 14px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .project-links {
+      font-size: 9pt;
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .stack {
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    .stack strong {
+      color: var(--text);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .edu-item {
+      margin-bottom: 6px;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        box-shadow: none;
+        padding: 0;
+        max-width: none;
+      }
+
+      a {
+        color: var(--accent) !important;
+      }
+
+      section {
+        margin-bottom: 16px;
+      }
+
+      .job,
+      .project {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .page-break-before {
+        break-before: page;
+        page-break-before: always;
+        padding-top: 0;
+      }
+
+      @page {
+        margin: 1.2cm 1.4cm;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 28px 24px;
+      }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Mirosław Piotr Wandyk</h1>
+      <div class="title">Full-Stack Engineer &nbsp;|&nbsp; Remote / Hybrid (Poland)</div>
+      <div class="contact">
+        <span>Myszyniec, Poland</span>
+        <span>+48 504 188 172</span>
+        <a href="mailto:miroslaw.wandyk@gmail.com">miroslaw.wandyk@gmail.com</a>
+        <a href="https://github.com/Barosz30">GitHub</a>
+        <a href="https://www.linkedin.com/in/miros%C5%82aw-wandyk-279b9b1a2/">LinkedIn</a>
+        <a href="https://barosz30.github.io/Portfolio/">Portfolio</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>
+        Full-Stack Engineer with <strong>~2 years of commercial experience</strong> building production web applications in
+        <strong>TypeScript, Next.js, and Nest.js</strong>. Delivered SaaS and MedTech platforms serving
+        <strong>500+ MAU</strong> with <strong>99% crash-free sessions</strong>. Optimized
+        <strong>Core Web Vitals</strong> to <strong>100/100 Lighthouse</strong> (Performance, Accessibility, Best Practices, SEO).
+        Experienced with <strong>OAuth/Keycloak</strong>, <strong>PostgreSQL</strong>, <strong>Stripe</strong>, and regulated data environments.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label">Core</span>
+          <span>TypeScript, JavaScript, React, Next.js, Nest.js, Node.js, Express.js, PostgreSQL, REST API, Git, Docker</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Production</span>
+          <span>Keycloak, Redux, React Native, MongoDB, Stripe, Google Maps API, Vitest, Playwright, GitHub Actions, CI/CD</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Familiar</span>
+          <span>Vue.js, Angular, GraphQL, AWS, Kubernetes, Terraform, Supabase, OpenAI API</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Practices</span>
+          <span>Agile/Scrum, code splitting, performance optimization, JWT/OAuth, relational database design</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Developer — DanCorp</span>
+          <span class="job-date">November 2025 – Present</span>
+        </div>
+        <div class="job-meta">Remote</div>
+        <ul>
+          <li>Built MedTech platform for e-prescriptions and medical consultation booking in a regulated data environment.</li>
+          <li>Designed centralized <strong>Nest.js API</strong> serving multiple <strong>Next.js</strong> frontends; reduced new portal deployment time by <strong>~30%</strong>.</li>
+          <li>Delivered booking and prescription features under strict deadlines.</li>
+        </ul>
+        <div class="tech"><strong>Technologies:</strong> Next.js, Nest.js, TypeScript, PostgreSQL, REST API, Figma</div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Developer — Investimetric</span>
+          <span class="job-date">May 2024 – June 2025</span>
+        </div>
+        <div class="job-meta">Remote</div>
+        <ul>
+          <li>Maintained <strong>2 production apps</strong> (500+ MAU) at <strong>99% crash-free sessions</strong>.</li>
+          <li>Achieved <strong>100/100 Lighthouse</strong> in all categories via performance audits and refactoring.</li>
+          <li>Improved load time by <strong>~40%</strong> through code splitting and bundle optimization.</li>
+          <li>Implemented <strong>Keycloak</strong> auth, <strong>Google Maps API</strong>, and <strong>React Native</strong> features.</li>
+        </ul>
+        <div class="tech"><strong>Technologies:</strong> Next.js, TypeScript, React Native, Redux, Keycloak, Google Maps API, Lighthouse</div>
+      </div>
+    </section>
+
+    <section class="page-break-before">
+      <h2>Selected Projects</h2>
+
+      <div class="project">
+        <div class="project-title">E-commerce Platform (Full-Stack)</div>
+        <div class="project-links">
+          <a href="https://github.com/Barosz30/MechaShopFront">GitHub — Frontend</a> &nbsp;|&nbsp;
+          <a href="https://mechashopfront.onrender.com/">Live Demo — Frontend</a> &nbsp;|&nbsp;
+          <a href="https://github.com/Barosz30/MechanicalShopBackend">GitHub — Backend</a> &nbsp;|&nbsp;
+          <a href="https://mechanicalshopbackend.onrender.com/">Live Demo — API</a>
+        </div>
+        <p>
+          React 19 + Vite frontend (JWT, Google OAuth, Stripe) + Nest.js backend (PostgreSQL, REST/GraphQL, Stripe, Cloudinary).
+          Tests: Vitest, Playwright.
+        </p>
+        <div class="stack"><strong>Stack:</strong> React, TypeScript, Nest.js, PostgreSQL, Stripe, Vitest, Playwright, OAuth</div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Product Catalog — Team Lead (3-person team)</div>
+        <div class="project-links">
+          <a href="https://github.com/PL-FE-SEP23-TeamMushrom/ProductCatalog">GitHub</a> &nbsp;|&nbsp;
+          <a href="https://catalog-deploy-barosz30s-projects.vercel.app/">Live Demo</a>
+        </div>
+        <p>Next.js product catalog with MongoDB and Clerk authentication.</p>
+        <div class="stack"><strong>Stack:</strong> Next.js, TypeScript, MongoDB, Tailwind CSS, Clerk</div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Games Database — Mobile App</div>
+        <div class="project-links">
+          <a href="https://github.com/Barosz30/games_database">GitHub</a> &nbsp;|&nbsp;
+          <a href="https://expo.dev/preview/update?message=Initial%20publish&updateRuntimeVersion=1.0.1&createdAt=2025-07-07T08%3A47%3A49.992Z&slug=exp&projectId=a02da5dc-75be-45f9-94fb-8ae288463e2e&group=541091ce-6a13-4e65-bb06-95e76d2bef1d">Expo Demo</a>
+        </div>
+        <p>React Native / Expo app with IGDB (Twitch) API integration.</p>
+        <div class="stack"><strong>Stack:</strong> React Native, TypeScript, Expo, NativeWind, REST API</div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Match-3 Game (PWA)</div>
+        <div class="project-links">
+          <a href="https://github.com/Barosz30/Match-3">GitHub</a> &nbsp;|&nbsp;
+          <a href="https://match-3-lyart.vercel.app/">Live Demo</a>
+        </div>
+        <p>Vue/Nuxt PWA with Supabase/PostgreSQL.</p>
+        <div class="stack"><strong>Stack:</strong> TypeScript, Vue, Nuxt, Tailwind CSS, Supabase, PostgreSQL, PWA</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education &amp; Training</h2>
+      <div class="edu-item"><strong>Mate Academy</strong> — Full-Stack Development Bootcamp</div>
+      <div class="edu-item"><strong>University of Warmia and Mazury</strong> — Environmental Protection (Bachelor's degree)</div>
+      <div class="edu-item"><strong>AWS Skill Builder</strong> — SimuLearn Practitioner (training simulation)</div>
+    </section>
+
+    <section>
+      <h2>Languages &amp; Additional</h2>
+      <div class="two-col">
+        <div>
+          <strong>Polish</strong> — Native<br />
+          <strong>English</strong> — B2
+        </div>
+        <div>
+          200+ algorithmic challenges<br />
+          Client-facing and team collaboration experience
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
