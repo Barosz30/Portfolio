@@ -69,6 +69,7 @@ function applyLocale(locale) {
   });
 
   localStorage.setItem(STORAGE_KEY, locale);
+  document.dispatchEvent(new CustomEvent('localechange', { detail: { locale } }));
 }
 
 function bindLangSwitch() {
