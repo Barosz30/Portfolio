@@ -101,8 +101,7 @@
     "subtitle": "Knows Mirosław inside out",
     "placeholder": "Ask about Mirosław…",
     "send": "Send message",
-    "toggle": "Open chat",
-    "welcome": "Hi! I'm Mirosław Wandyk's assistant. I'm a bit sleepy — I run on Render's free tier, so the first reply after idle time may take a moment. Ask about his projects, skills, or why he's such an amazing developer!"
+    "toggle": "Open chat"
   },
   "footer": {
     "copy": "© 2026 Mirosław Wandyk · Portfolio",

@@ -1,14 +1,10 @@
-import pl from '../locales/pl.json';
-import en from '../locales/en.json';
-
-const LOCALES = { pl, en };
-
 const CHAT_BASE = import.meta.env.DEV
   ? ''
   : 'https://chatbot-omom.onrender.com';
 
 const CHAT_API = `${CHAT_BASE}/api/chat`;
 const CHAT_PING = `${CHAT_BASE}/api/chat/ping`;
+const CHAT_WELCOME = `${CHAT_BASE}/api/chat/welcome`;
 
 const SUGGESTIONS = {
   pl: [
@@ -28,11 +24,13 @@ const ERRORS = {
     network: 'Nie udało się połączyć. Spróbuj ponownie.',
     rateLimit: 'Za dużo zapytań — poczekaj chwilę.',
     generic: 'Coś poszło nie tak. Spróbuj ponownie.',
+    welcome: 'Cześć! Jestem asystentem Mirosława Wandyk. Zapytaj o jego projekty, umiejętności albo doświadczenie.',
   },
   en: {
     network: 'Connection failed. Please try again.',
     rateLimit: 'Too many requests — wait a moment.',
     generic: 'Something went wrong. Please try again.',
+    welcome: "Hi! I'm Mirosław Wandyk's assistant. Ask about his projects, skills, or experience.",
   },
 };
 
@@ -48,18 +46,40 @@ const suggestionsEl = document.getElementById('chatSuggestions');
 let isOpen = false;
 let isLoading = false;
 let welcomeShown = false;
+/** @type {{ role: 'user' | 'assistant', content: string }[]} */
+let history = [];
 
 function getLocale() {
   const lang = document.documentElement.lang;
   return lang === 'en' ? 'en' : 'pl';
 }
 
-function getWelcome() {
-  return LOCALES[getLocale()]?.chat?.welcome ?? '';
-}
-
 function wakeChatbot() {
   fetch(CHAT_PING).catch(() => {});
+}
+
+async function parseReply(res) {
+  const contentType = res.headers.get('content-type') || '';
+  if (contentType.includes('application/json')) {
+    const data = await res.json();
+    if (typeof data === 'string') return data;
+    return data?.reply ?? data?.message ?? data?.welcome ?? '';
+  }
+  return (await res.text()).trim();
+}
+
+async function fetchWelcome() {
+  const locale = getLocale();
+  const fallback = ERRORS[locale].welcome;
+
+  try {
+    const res = await fetch(`${CHAT_WELCOME}?lang=${locale}`);
+    if (!res.ok) return fallback;
+    const text = await parseReply(res);
+    return text || fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 function openChat() {
@@ -118,9 +138,14 @@ function renderSuggestions() {
   });
 }
 
-function showWelcome() {
+async function showWelcome() {
   welcomeShown = true;
-  appendMessage(getWelcome(), 'bot');
+  showTyping();
+
+  const text = await fetchWelcome();
+  hideTyping();
+  appendMessage(text, 'bot');
+  history = [{ role: 'assistant', content: text }];
   renderSuggestions();
 }
 
@@ -131,14 +156,9 @@ function setLoading(loading) {
 }
 
 async function parseErrorReply(res, fallback) {
-  const contentType = res.headers.get('content-type') || '';
   try {
-    if (contentType.includes('application/json')) {
-      const data = await res.json();
-      if (data?.reply) return data.reply;
-    }
-    const text = await res.text();
-    if (text) return text;
+    const reply = await parseReply(res);
+    if (reply) return reply;
   } catch {
     /* fall through */
   }
@@ -153,6 +173,8 @@ async function sendMessage(text) {
   if (!message) return;
   if (isLoading) return;
 
+  const historyForRequest = [...history];
+
   appendMessage(message, 'user');
   input.value = '';
   suggestionsEl.innerHTML = '';
@@ -163,7 +185,7 @@ async function sendMessage(text) {
     const res = await fetch(CHAT_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, history: historyForRequest }),
     });
 
     hideTyping();
@@ -180,8 +202,11 @@ async function sendMessage(text) {
       return;
     }
 
-    const data = await res.json();
-    appendMessage(data.reply || errors.generic, 'bot');
+    const reply = await parseReply(res);
+    const botReply = reply || errors.generic;
+    appendMessage(botReply, 'bot');
+    history.push({ role: 'user', content: message });
+    history.push({ role: 'assistant', content: botReply });
   } catch {
     hideTyping();
     appendMessage(errors.network, 'bot');
@@ -197,11 +222,16 @@ form.addEventListener('submit', (e) => {
   sendMessage();
 });
 
-document.addEventListener('localechange', () => {
+document.addEventListener('localechange', async () => {
   if (!welcomeShown) return;
-  const msgs = messagesEl.querySelectorAll('.chat-message--bot:not(.chat-message--typing)');
-  if (msgs.length === 1) {
-    msgs[0].textContent = getWelcome();
+
+  const botMsgs = messagesEl.querySelectorAll('.chat-message--bot:not(.chat-message--typing)');
+  const userMsgs = messagesEl.querySelectorAll('.chat-message--user');
+
+  if (botMsgs.length === 1 && userMsgs.length === 0) {
+    const text = await fetchWelcome();
+    botMsgs[0].textContent = text;
+    history = [{ role: 'assistant', content: text }];
     renderSuggestions();
   }
 });

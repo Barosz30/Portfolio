@@ -14,8 +14,6 @@ dist-ssr
 *.tsbuildinfo
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -26,3 +24,5 @@ dist-ssr
 temp_auto_push.bat
 temp_interactive_push.bat
 config.bat
+branch_structure.json
+.gitignore

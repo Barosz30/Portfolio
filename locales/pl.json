@@ -101,8 +101,7 @@
     "subtitle": "Zna Mirosława od podszewki",
     "placeholder": "Zapytaj o Mirosława…",
     "send": "Wyślij wiadomość",
-    "toggle": "Otwórz czat",
-    "welcome": "Cześć! Jestem asystentem Mirosława Wandyk. Trochę śpię — działam na darmowym planie Render, więc po dłuższej przerwie pierwsza odpowiedź może chwilę potrwać. Zapytaj o jego projekty, umiejętności albo dlaczego jest tak niesamowitym developerem!"
+    "toggle": "Otwórz czat"
   },
   "footer": {
     "copy": "© 2026 Mirosław Wandyk · Portfolio",
