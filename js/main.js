@@ -3,41 +3,74 @@
  * Effects: spotlight, cursor, globe drag, tilt, magnetic, runaway, scroll reveals, theme
  */
 
-// #14 Spotlight + #19 Custom cursor
-const spotlight = document.querySelector('.spotlight');
+// #14 Spotlight + #19 Custom cursor (desktop only — no rAF on touch)
 const cursorRing = document.querySelector('.cursor-ring');
 const cursorDot = document.querySelector('.cursor-dot');
+const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-let mouseX = 50;
-let mouseY = 50;
-let ringPx = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-let targetPx = { x: ringPx.x, y: ringPx.y };
+if (finePointer) {
+  let mouseX = 50;
+  let mouseY = 50;
+  let ringPx = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  let targetPx = { x: ringPx.x, y: ringPx.y };
+  let cursorRafId = null;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = (e.clientX / window.innerWidth) * 100;
-  mouseY = (e.clientY / window.innerHeight) * 100;
-  targetPx.x = e.clientX;
-  targetPx.y = e.clientY;
-  document.documentElement.style.setProperty('--mouse-x', `${mouseX}%`);
-  document.documentElement.style.setProperty('--mouse-y', `${mouseY}%`);
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 100;
+    mouseY = (e.clientY / window.innerHeight) * 100;
+    targetPx.x = e.clientX;
+    targetPx.y = e.clientY;
+    document.documentElement.style.setProperty('--mouse-x', `${mouseX}%`);
+    document.documentElement.style.setProperty('--mouse-y', `${mouseY}%`);
 
-  if (cursorDot) {
-    cursorDot.style.left = `${e.clientX}px`;
-    cursorDot.style.top = `${e.clientY}px`;
+    if (cursorDot) {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+    }
+
+    if (cursorRafId === null) scheduleCursorFrame();
+  });
+
+  function tickCursor() {
+    cursorRafId = null;
+    ringPx.x += (targetPx.x - ringPx.x) * 0.18;
+    ringPx.y += (targetPx.y - ringPx.y) * 0.18;
+
+    if (cursorRing) {
+      cursorRing.style.left = `${ringPx.x}px`;
+      cursorRing.style.top = `${ringPx.y}px`;
+    }
+
+    const dx = Math.abs(targetPx.x - ringPx.x);
+    const dy = Math.abs(targetPx.y - ringPx.y);
+    if (dx > 0.5 || dy > 0.5) scheduleCursorFrame();
   }
+
+  function scheduleCursorFrame() {
+    if (cursorRafId !== null) return;
+    cursorRafId = requestAnimationFrame(tickCursor);
+  }
+}
+
+// Pause heavy CSS animations when their section leaves the viewport
+const effectsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('is-inview', entry.isIntersecting);
+    });
+  },
+  { rootMargin: '80px 0px', threshold: 0 }
+);
+
+document.querySelectorAll('#hero, .marquee-section, #about').forEach((el) => {
+  el.classList.add('is-inview');
+  effectsObserver.observe(el);
 });
 
-function animateCursor() {
-  ringPx.x += (targetPx.x - ringPx.x) * 0.18;
-  ringPx.y += (targetPx.y - ringPx.y) * 0.18;
-
-  if (cursorRing) {
-    cursorRing.style.left = `${ringPx.x}px`;
-    cursorRing.style.top = `${ringPx.y}px`;
-  }
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
+document.addEventListener('visibilitychange', () => {
+  document.body.classList.toggle('is-page-hidden', document.hidden);
+});
+document.body.classList.toggle('is-page-hidden', document.hidden);
 
 document.querySelectorAll('a, button, .flip-card, .snap-card').forEach((el) => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));

@@ -82,7 +82,7 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
 
   // Atmosphere glow
   const atmosphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1.14, 64, 64),
+    new THREE.SphereGeometry(1.14, 32, 32),
     new THREE.MeshBasicMaterial({
       color: 0x5eb3ff,
       transparent: true,
@@ -105,7 +105,7 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
     colorMap.colorSpace = THREE.SRGBColorSpace;
 
     const earth = new THREE.Mesh(
-      new THREE.SphereGeometry(1, 96, 96),
+      new THREE.SphereGeometry(1, 48, 48),
       new THREE.MeshPhongMaterial({
         map: colorMap,
         bumpMap: bumpMap,
@@ -118,7 +118,7 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
   }).catch(() => {
     // Fallback if textures fail to load
     globeGroup.add(new THREE.Mesh(
-      new THREE.SphereGeometry(1, 64, 64),
+      new THREE.SphereGeometry(1, 48, 48),
       new THREE.MeshPhongMaterial({
         color: 0x1a4a7a,
         emissive: 0x0a1a2a,
@@ -135,6 +135,49 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
   let lastX = 0;
   let lastY = 0;
   let autoRotate = !reduceMotion;
+  let isInView = false;
+  let isPageVisible = !document.hidden;
+  let rafId = null;
+
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
+  }
+
+  function shouldRender() {
+    return isInView && isPageVisible;
+  }
+
+  function renderFrame() {
+    if (!isDragging && autoRotate) rotY += 0.003;
+    globeGroup.rotation.x = rotX;
+    globeGroup.rotation.y = rotY;
+    renderer.render(threeScene, camera);
+  }
+
+  function tick() {
+    rafId = null;
+    if (!shouldRender()) return;
+    renderFrame();
+    scheduleFrame();
+  }
+
+  function scheduleFrame() {
+    if (rafId !== null || !shouldRender()) return;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function startLoop() {
+    if (!shouldRender()) return;
+    renderFrame();
+    scheduleFrame();
+  }
+
+  function stopLoop() {
+    if (rafId === null) return;
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
 
   function resize() {
     const size = Math.min(sceneEl.clientWidth, 300) || 300;
@@ -153,6 +196,7 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
     lastY = e.clientY;
     sceneEl.classList.add('is-dragging');
     sceneEl.setPointerCapture(e.pointerId);
+    if (shouldRender()) startLoop();
   });
 
   sceneEl.addEventListener('pointermove', (e) => {
@@ -163,6 +207,10 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
     rotX = THREE.MathUtils.clamp(rotX + dy * 0.005, -1.05, 1.05);
     lastX = e.clientX;
     lastY = e.clientY;
+    if (shouldRender()) {
+      renderFrame();
+      scheduleFrame();
+    }
   });
 
   const endDrag = (e) => {
@@ -178,14 +226,24 @@ if (sceneEl && canvas && !sceneEl.dataset.globeInit) {
   sceneEl.addEventListener('pointerup', endDrag);
   sceneEl.addEventListener('pointercancel', endDrag);
 
-  function animate() {
-    requestAnimationFrame(animate);
-    if (!isDragging && autoRotate) rotY += 0.003;
-    globeGroup.rotation.x = rotX;
-    globeGroup.rotation.y = rotY;
-    renderer.render(threeScene, camera);
-  }
+  const visibilityObserver = new IntersectionObserver(
+    (entries) => {
+      isInView = entries.some((entry) => entry.isIntersecting);
+      if (shouldRender()) startLoop();
+      else stopLoop();
+    },
+    { rootMargin: '80px 0px', threshold: 0 }
+  );
+  visibilityObserver.observe(sceneEl);
 
-  animate();
+  document.addEventListener('visibilitychange', () => {
+    isPageVisible = !document.hidden;
+    if (shouldRender()) startLoop();
+    else stopLoop();
+  });
+
+  isInView = isElementInViewport(sceneEl);
+  if (shouldRender()) startLoop();
+
   loaderPromise.catch(() => {});
 }

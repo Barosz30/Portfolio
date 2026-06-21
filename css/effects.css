@@ -197,6 +197,12 @@ body.cursor-hover .cursor-ring {
   to { transform: scale(1.1) rotate(3deg); }
 }
 
+.hero:not(.is-inview) .hero__blob,
+.hero:not(.is-inview) .hero__mesh,
+.hero:not(.is-inview) .neon-text {
+  animation-play-state: paused;
+}
+
 [data-theme='light'] .hero__mesh {
   opacity: 0.7;
 }
@@ -238,6 +244,10 @@ body.cursor-hover .cursor-ring {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+.marquee-section:not(.is-inview) .marquee__track {
+  animation-play-state: paused;
 }
 
 /* #15 Clip-path morph — zawsze 8 wierzchołków; sześciokąt = pary punktów w tym samym miejscu */
@@ -293,6 +303,18 @@ body.cursor-hover .cursor-ring {
 
 @keyframes ring-spin {
   to { transform: rotate(360deg); }
+}
+
+.about:not(.is-inview) .about__photo-ring {
+  animation-play-state: paused;
+}
+
+body.is-page-hidden .hero__blob,
+body.is-page-hidden .hero__mesh,
+body.is-page-hidden .neon-text,
+body.is-page-hidden .marquee__track,
+body.is-page-hidden .about__photo-ring {
+  animation-play-state: paused;
 }
 
 /* #5 Flip card */
