@@ -8,15 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
   <script>
     (function () {
       var locale = localStorage.getItem('locale');
       if (locale === 'pl' || locale === 'en') document.documentElement.lang = locale;
     })();
   </script>
-  <script type="module" crossorigin src="/Portfolio/assets/index-D2NnUSeC.js"></script>
-  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-CuZz5OU0.css">
+  <script type="module" crossorigin src="/Portfolio/assets/index-_WNHwk8e.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-C7p4Q2x7.css">
 </head>
 <body>
   <div class="spotlight" aria-hidden="true"></div>
@@ -447,6 +447,9 @@
           <button type="button" class="btn btn--ghost btn--large runaway-btn" id="runawayBtn" data-i18n="contact.downloadCv">
             Pobierz CV (ucieka!)
           </button>
+          <button type="button" class="btn btn--primary btn--large magnetic-btn" data-chat-open data-i18n="contact.chat">
+            Porozmawiaj z asystentem AI
+          </button>
         </div>
 
         <div class="contact__links">
@@ -465,6 +468,50 @@
       Snap scroll · Custom cursor · Theme toggle
     </p>
   </footer>
-
+
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-panel glass" id="chatPanel" hidden>
+      <div class="chat-panel__header">
+        <div class="chat-panel__avatar" aria-hidden="true">✨</div>
+        <div>
+          <div class="chat-panel__title" data-i18n="chat.title">Asystent AI</div>
+          <div class="chat-panel__subtitle" data-i18n="chat.subtitle">Zna Mirosława od podszewki</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
+      <div class="chat-suggestions" id="chatSuggestions"></div>
+      <form class="chat-form" id="chatForm">
+        <input
+          type="text"
+          class="chat-input"
+          id="chatInput"
+          maxlength="2000"
+          autocomplete="off"
+          data-i18n-attr="placeholder:chat.placeholder;aria-label:chat.placeholder"
+          placeholder="Zapytaj o Mirosława…"
+        />
+        <button type="submit" class="chat-send" id="chatSend" data-i18n-attr="aria-label:chat.send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <button
+      type="button"
+      class="chat-toggle"
+      id="chatToggle"
+      aria-expanded="false"
+      data-i18n-attr="aria-label:chat.toggle"
+    >
+      <svg class="chat-toggle__icon chat-toggle__icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+      <svg class="chat-toggle__icon chat-toggle__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
 </body>
 </html>
