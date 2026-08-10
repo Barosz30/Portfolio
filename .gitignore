@@ -21,8 +21,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+config.bat
+
+# Prevent reintroduction of VS Code folderOpen dropper artifacts
+.vscode/
+branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
-config.bat
-branch_structure.json
-.gitignore
