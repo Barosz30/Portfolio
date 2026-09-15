@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#050816"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="128" y1="96" x2="392" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="0.5" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#A3E635"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+
+  <path d="M256 78C178 78 118 135 118 210C118 257 142 298 184 328V372C184 393 201 410 222 410H290C311 410 328 393 328 372V328C370 298 394 257 394 210C394 135 334 78 256 78Z" fill="url(#accent)" opacity="0.2"/>
+
+  <path d="M254 102C184 102 129 156 129 224C129 269 154 307 194 331L214 343V362C214 379 228 392 245 392H277C294 392 308 379 308 362V343L318 331C358 307 383 269 383 224C383 156 328 102 254 102Z" fill="url(#accent)"/>
+
+  <path d="M181 205C181 170 209 142 245 142H255C291 142 319 170 319 205V222C319 258 291 286 255 286H245C209 286 181 258 181 222V205Z" fill="#0B1020"/>
+
+  <path d="M196 214C196 197 210 184 228 184H240C258 184 272 197 272 214V222C272 240 258 253 240 253H228C210 253 196 240 196 222V214Z" fill="#F8FAFC"/>
+  <path d="M240 216C240 206 248 199 258 199H267C277 199 285 206 285 216V225C285 235 277 242 267 242H258C248 242 240 235 240 225V216Z" fill="#22D3EE"/>
+
+  <path d="M201 256C218 267 235 273 256 273C277 273 294 267 311 256" stroke="#E2E8F0" stroke-width="14" stroke-linecap="round"/>
+  <path d="M256 273V318" stroke="#E2E8F0" stroke-width="14" stroke-linecap="round"/>
+
+  <path d="M180 328C202 347 226 358 256 358C286 358 310 347 332 328L346 375C337 387 323 395 307 399L285 404H227L205 399C189 395 175 387 166 375L180 328Z" fill="#0B1020" opacity="0.9"/>
+
+  <circle cx="154" cy="213" r="18" fill="#22D3EE" opacity="0.8"/>
+  <circle cx="357" cy="213" r="18" fill="#A3E635" opacity="0.8"/>
+</svg>
