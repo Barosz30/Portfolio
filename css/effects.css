@@ -105,6 +105,9 @@ body.cursor-hover .cursor-ring {
 
 [data-theme='light'] .neon-text {
   background: linear-gradient(135deg, #5b3fd4 0%, #00a884 50%, #e0457a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 16px rgba(91, 63, 212, 0.35));
 }
 
